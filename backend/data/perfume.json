@@ -1,0 +1,413 @@
+[
+    {
+      "id": 1,
+      "name": "Perfume Essence No.1",
+      "quantity": 50,
+      "star": 4.5,
+      "description": "A luxurious fragrance with a blend of floral and woody notes.",
+      "discount": 10,
+      "image": "https://i.ibb.co/126PHYL/0369446fe4f54cebd4bbb403a111ce9b.jpg",
+      "price": 120
+    },
+    {
+      "id": 2,
+      "name": "Mystic Bloom",
+      "quantity": 30,
+      "star": 4.2,
+      "description": "A refreshing scent inspired by blooming gardens.",
+      "discount": 15,
+      "image": "https://i.ibb.co/Ntn63s6/0c438b169aac2ca69cbe5df6f69261a2.jpg",
+      "price": 85
+    },
+    {
+      "id": 3,
+      "name": "Elegant Whisper",
+      "quantity": 40,
+      "star": 4.8,
+      "description": "Sophisticated and subtle, perfect for evening wear.",
+      "discount": 20,
+      "image": "https://i.ibb.co/vwB2rgr/713ff5fccfb22ef0eed5afeb65158041.jpg",
+      "price": 140
+    },
+    {
+      "id": 4,
+      "name": "Ocean Breeze",
+      "quantity": 25,
+      "star": 4.0,
+      "description": "A light and breezy fragrance reminiscent of the sea.",
+      "discount": 5,
+      "image": "https://i.ibb.co/VH99QKG/e679333e48b1444a87d7fd7c165c0139.jpg",
+      "price": 60
+    },
+    {
+      "id": 5,
+      "name": "Golden Amber",
+      "quantity": 35,
+      "star": 4.6,
+      "description": "A warm and enchanting aroma with hints of amber.",
+      "discount": 12,
+      "image": "https://i.ibb.co/mNdPQfS/46ee0b8c3759e1df89dd045c4f23f985.jpg",
+      "price": 95
+    },
+    {
+      "id": 6,
+      "name": "Citrus Bloom",
+      "quantity": 50,
+      "star": 4.1,
+      "description": "A vibrant citrus fragrance with floral undertones.",
+      "discount": 10,
+      "image": "https://i.ibb.co/2W51gG9/5dcc3b117c99694cfaa930beb78707fb.jpg",
+      "price": 70
+    },
+    {
+      "id": 7,
+      "name": "Velvet Rose",
+      "quantity": 20,
+      "star": 4.7,
+      "description": "A rich and velvety rose scent with a modern twist.",
+      "discount": 18,
+      "image": "https://i.ibb.co/Pg3nqCx/6d072b4824ea618ccd5c24f58f5d741d.jpg",
+      "price": 110
+    },
+    {
+      "id": 8,
+      "name": "Night Mystique",
+      "quantity": 30,
+      "star": 4.4,
+      "description": "A mysterious fragrance with deep, musky tones.",
+      "discount": 15,
+      "image": "https://i.ibb.co/Jmrm7q8/c0a32d749fbf6d78632ac6be35987b9d.jpg",
+      "price": 90
+    },
+    {
+      "id": 9,
+      "name": "Spring Dew",
+      "quantity": 45,
+      "star": 4.3,
+      "description": "Refreshing and light, perfect for a sunny day.",
+      "discount": 8,
+      "image": "https://i.ibb.co/YB76ZdY/2f53bad20135d7aaa2694d57e4d89c19.jpg",
+      "price": 55
+    },
+    {
+      "id": 10,
+      "name": "Amber Glow",
+      "quantity": 15,
+      "star": 4.9,
+      "description": "A captivating fragrance with amber and spice notes.",
+      "discount": 25,
+      "image": "https://i.ibb.co/Bs08mkP/72d2504ee067b4df8d10663c2f807d7f.jpg",
+      "price": 150
+    },
+    {
+      "id": 11,
+      "name": "Fresh Lilac",
+      "quantity": 60,
+      "star": 4.1,
+      "description": "A delightful lilac fragrance for everyday use.",
+      "discount": 10,
+      "image": "https://i.ibb.co/nQ83YvH/2fb9d281ce89350c87d919d35572d58d.jpg",
+      "price": 65
+    },
+    {
+      "id": 12,
+      "name": "Mystic Oud",
+      "quantity": 10,
+      "star": 4.8,
+      "description": "A luxurious and exotic oud-based fragrance.",
+      "discount": 30,
+      "image": "https://i.ibb.co/PrXjwGV/a62fde092aa7d4fc80b0316bbde25935.jpg",
+      "price": 200
+    },
+    {
+      "id": 13,
+      "name": "Floral Dream",
+      "quantity": 50,
+      "star": 4.0,
+      "description": "A bouquet of fresh and vibrant floral notes.",
+      "discount": 12,
+      "image": "https://i.ibb.co/P54GXsC/d326e64e2e979f9d14b9df006d2d917b.jpg",
+      "price": 80
+    },
+    {
+      "id": 14,
+      "name": "Exotic Spices",
+      "quantity": 35,
+      "star": 4.5,
+      "description": "A unique and daring blend of exotic spices.",
+      "discount": 18,
+      "image": "https://i.ibb.co/XXhTQFt/5074b5027547200eeb38f1feeeecfd2d.jpg",
+      "price": 130
+    },
+    {
+      "id": 15,
+      "name": "Woody Bliss",
+      "quantity": 25,
+      "star": 4.6,
+      "description": "A natural woody scent with earthy undertones.",
+      "discount": 20,
+      "image": "https://i.ibb.co/LZ7hTMZ/13c075f62e60c006f47b9d13c67399df.jpg",
+      "price": 100
+    },
+    {
+      "id": 16,
+      "name": "Jasmine Elixir",
+      "quantity": 40,
+      "star": 4.3,
+      "description": "A mesmerizing jasmine fragrance that lingers.",
+      "discount": 15,
+      "image": "https://i.ibb.co/JRm4w5G/b010b2d2a70d34a41a6de2f86309f0fa.jpg",
+      "price": 75
+    },
+    {
+      "id": 17,
+      "name": "Lavender Fields",
+      "quantity": 55,
+      "star": 4.2,
+      "description": "A calming lavender scent perfect for relaxation.",
+      "discount": 8,
+      "image": "https://i.ibb.co/hFCYtMG/4522b1d5ae6e209996973e5ad615daab.jpg",
+      "price": 60
+    },
+    {
+      "id": 18,
+      "name": "Crimson Passion",
+      "quantity": 30,
+      "star": 4.7,
+      "description": "A bold and passionate scent for special occasions.",
+      "discount": 22,
+      "image": "https://i.ibb.co/DL0GhfC/d30d7c2732bf1b35a5757335f374434b.jpg",
+      "price": 125
+    },
+    {
+      "id": 19,
+      "name": "Pure Essence",
+      "quantity": 20,
+      "star": 4.4,
+      "description": "A clean and pure scent, perfect for minimalists.",
+      "discount": 10,
+      "image": "https://i.ibb.co/sKrscC7/perfume1.jpg",
+      "price": 50
+    },
+    {
+      "id": 20,
+      "name": "Rose Petals",
+      "quantity": 45,
+      "star": 4.6,
+      "description": "A delightful rose fragrance with hints of sweetness.",
+      "discount": 18,
+      "image": "https://i.ibb.co/F6xdWyy/perfume2.jpg",
+      "price": 90
+    },
+    {
+      "id": 20,
+      "name": "Cedar Haven",
+      "quantity": 30,
+      "star": 4.4,
+      "description": "A warm and grounding cedarwood fragrance.",
+      "discount": 15,
+      "image": "https://i.ibb.co/F6xdWyy/perfume2.jpg",
+      "price": 70
+    },
+    {
+      "id": 21,
+      "name": "Essence of Bliss",
+      "quantity": 40,
+      "star": 4.6,
+      "description": "A captivating blend of natural florals and musk.",
+      "discount": 15,
+      "image": "https://i.ibb.co/126PHYL/0369446fe4f54cebd4bbb403a111ce9b.jpg",
+      "price": 120
+    },
+    {
+      "id": 22,
+      "name": "Tranquil Woods",
+      "quantity": 35,
+      "star": 4.5,
+      "description": "A refreshing and calming woody aroma.",
+      "discount": 10,
+      "image": "https://i.ibb.co/Ntn63s6/0c438b169aac2ca69cbe5df6f69261a2.jpg",
+      "price": 80
+    },
+    {
+      "id": 23,
+      "name": "Golden Dreams",
+      "quantity": 50,
+      "star": 4.7,
+      "description": "A rich and luxurious fragrance for special occasions.",
+      "discount": 20,
+      "image": "https://i.ibb.co/vwB2rgr/713ff5fccfb22ef0eed5afeb65158041.jpg",
+      "price": 140
+    },
+    {
+      "id": 24,
+      "name": "Azure Mist",
+      "quantity": 30,
+      "star": 4.3,
+      "description": "A cool and refreshing scent with oceanic tones.",
+      "discount": 12,
+      "image": "https://i.ibb.co/VH99QKG/e679333e48b1444a87d7fd7c165c0139.jpg",
+      "price": 75
+    },
+    {
+      "id": 25,
+      "name": "Amber Delight",
+      "quantity": 20,
+      "star": 4.8,
+      "description": "A seductive amber fragrance with warm undertones.",
+      "discount": 18,
+      "image": "https://i.ibb.co/mNdPQfS/46ee0b8c3759e1df89dd045c4f23f985.jpg",
+      "price": 100
+    },
+    {
+      "id": 26,
+      "name": "Fresh Breeze",
+      "quantity": 30,
+      "star": 4.2,
+      "description": "A light and airy fragrance for daily wear.",
+      "discount": 10,
+      "image": "https://i.ibb.co/2W51gG9/5dcc3b117c99694cfaa930beb78707fb.jpg",
+      "price": 60
+    },
+    {
+      "id": 27,
+      "name": "Velvet Midnight",
+      "quantity": 45,
+      "star": 4.7,
+      "description": "A deep and mysterious fragrance for night outings.",
+      "discount": 15,
+      "image": "https://i.ibb.co/Pg3nqCx/6d072b4824ea618ccd5c24f58f5d741d.jpg",
+      "price": 115
+    },
+    {
+      "id": 28,
+      "name": "Golden Blossom",
+      "quantity": 40,
+      "star": 4.4,
+      "description": "A sweet floral scent with a golden touch.",
+      "discount": 18,
+      "image": "https://i.ibb.co/Jmrm7q8/c0a32d749fbf6d78632ac6be35987b9d.jpg",
+      "price": 95
+    },
+    {
+      "id": 29,
+      "name": "Crystal Dew",
+      "quantity": 25,
+      "star": 4.5,
+      "description": "A sparkling and refreshing fragrance.",
+      "discount": 12,
+      "image": "https://i.ibb.co/YB76ZdY/2f53bad20135d7aaa2694d57e4d89c19.jpg",
+      "price": 70
+    },
+    {
+      "id": 30,
+      "name": "Amber Flame",
+      "quantity": 50,
+      "star": 4.8,
+      "description": "A fiery amber fragrance with spicy accents.",
+      "discount": 22,
+      "image": "https://i.ibb.co/Bs08mkP/72d2504ee067b4df8d10663c2f807d7f.jpg",
+      "price": 145
+    },
+    {
+      "id": 31,
+      "name": "Lavender Mist",
+      "quantity": 20,
+      "star": 4.1,
+      "description": "A calming fragrance perfect for relaxation.",
+      "discount": 15,
+      "image": "https://i.ibb.co/nQ83YvH/2fb9d281ce89350c87d919d35572d58d.jpg",
+      "price": 65
+    },
+    {
+      "id": 32,
+      "name": "Oud Majesty",
+      "quantity": 10,
+      "star": 4.9,
+      "description": "A majestic oud fragrance with royal undertones.",
+      "discount": 25,
+      "image": "https://i.ibb.co/PrXjwGV/a62fde092aa7d4fc80b0316bbde25935.jpg",
+      "price": 210
+    },
+    {
+      "id": 33,
+      "name": "Floral Symphony",
+      "quantity": 30,
+      "star": 4.3,
+      "description": "A harmonious blend of fresh floral notes.",
+      "discount": 10,
+      "image": "https://i.ibb.co/P54GXsC/d326e64e2e979f9d14b9df006d2d917b.jpg",
+      "price": 75
+    },
+    {
+      "id": 34,
+      "name": "Spice Legend",
+      "quantity": 35,
+      "star": 4.6,
+      "description": "A bold fragrance with spicy and woody tones.",
+      "discount": 20,
+      "image": "https://i.ibb.co/XXhTQFt/5074b5027547200eeb38f1feeeecfd2d.jpg",
+      "price": 120
+    },
+    {
+      "id": 35,
+      "name": "Woody Essence",
+      "quantity": 40,
+      "star": 4.7,
+      "description": "An earthy scent that connects with nature.",
+      "discount": 18,
+      "image": "https://i.ibb.co/LZ7hTMZ/13c075f62e60c006f47b9d13c67399df.jpg",
+      "price": 105
+    },
+    {
+      "id": 36,
+      "name": "Jasmine Secret",
+      "quantity": 30,
+      "star": 4.5,
+      "description": "A charming jasmine fragrance with sweet undertones.",
+      "discount": 15,
+      "image": "https://i.ibb.co/JRm4w5G/b010b2d2a70d34a41a6de2f86309f0fa.jpg",
+      "price": 85
+    },
+    {
+      "id": 37,
+      "name": "Lavender Bliss",
+      "quantity": 25,
+      "star": 4.3,
+      "description": "A soft lavender fragrance for a peaceful day.",
+      "discount": 12,
+      "image": "https://i.ibb.co/hFCYtMG/4522b1d5ae6e209996973e5ad615daab.jpg",
+      "price": 55
+    },
+    {
+      "id": 38,
+      "name": "Tropical Fantasy",
+      "quantity": 50,
+      "star": 4.7,
+      "description": "An exotic tropical fragrance to awaken your senses.",
+      "discount": 20,
+      "image": "https://i.ibb.co/DL0GhfC/d30d7c2732bf1b35a5757335f374434b.jpg",
+      "price": 85
+    },
+    {
+      "id": 39,
+      "name": "Rosewood Echo",
+      "quantity": 30,
+      "star": 4.9,
+      "description": "A powerful blend of rosewood and spicy notes.",
+      "discount": 22,
+      "image": "https://i.ibb.co/sKrscC7/perfume1.jpg",
+      "price": 125
+    },
+    {
+      "id": 40,
+      "name": "Cedar Aroma",
+      "quantity": 20,
+      "star": 4.4,
+      "description": "A cedarwood fragrance with aromatic spices.",
+      "discount": 15,
+      "image": "https://i.ibb.co/F6xdWyy/perfume2.jpg",
+      "price": 75
+    }
+  ]
+  

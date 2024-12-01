@@ -1,0 +1,199 @@
+import React, { useState } from "react";
+import { GoogleLogin } from "react-google-login";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+import Loader from "../../components/Loader"; // Import Loader component
+
+function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // Loading state
+  const navigate = useNavigate();
+
+  const clientId = "1074315812564-92s9klc0eos45ujtefj613bkualvulq0.apps.googleusercontent.com";
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    if (!username || !password) {
+      toast.error("Vui lòng nhập tên đăng nhập và mật khẩu.");
+      return;
+    }
+
+    setIsLoading(true); // Start loading
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Store user info in Local Storage
+        localStorage.setItem("user", JSON.stringify(data));
+        toast.success("Đăng nhập thành công!", {
+          position: "top-right",
+          autoClose: 2000,
+        });
+
+        // Navigate after success
+        setTimeout(() => {
+          navigate("/");
+          window.location.reload();
+        }, 2000);
+      } else {
+        toast.error(data.message, {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      }
+    } catch (error) {
+      toast.error("Có lỗi xảy ra, vui lòng thử lại.");
+      console.error(error);
+    } finally {
+      setIsLoading(false); // Stop loading
+    }
+  };
+
+  const handleGoogleSuccess = (response) => {
+    // Handle Google login success
+    const { profileObj, tokenId } = response;
+    console.log("Google login successful", profileObj);
+
+    setIsLoading(true); // Start loading for Google login
+
+    // Send the tokenId and profileObj to your backend for authentication
+    fetch("http://localhost:5000/api/auth/google-login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token: tokenId,      
+        profile: profileObj  
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          localStorage.setItem("user", JSON.stringify(data));
+          toast.success("Đăng nhập với Google thành công!", {
+            position: "top-right",
+            autoClose: 2000,
+          });
+
+          console.log(data)
+          // Navigate to home after success
+          setTimeout(() => {
+            navigate("/");
+            window.location.reload();
+          }, 2000);
+        } else {
+          toast.error("Đăng nhập với Google thất bại.");
+        }
+      })
+      .catch((error) => {
+        toast.error("Có lỗi xảy ra, vui lòng thử lại.");
+        console.error(error);
+      })
+      .finally(() => {
+        setIsLoading(false); // Stop loading after login
+      });
+  };
+
+  const handleGoogleFailure = (error) => {
+    console.error("Google login error", error);
+    toast.error("Đăng nhập với Google thất bại.");
+  };
+
+  return (
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      {isLoading && <Loader text="Hệ thống đang xử lý..." />} {/* Show loader while loading */}
+      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+        <h2 className="text-2xl font-bold text-center mb-6">Đăng nhập vào EvolveX</h2>
+
+        <form onSubmit={handleLogin}>
+          <div className="mb-4">
+            <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+              Tên đăng nhập
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              className="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-600"
+              placeholder="Nhập tên đăng nhập"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-6">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              Mật khẩu
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              className="mt-2 p-3 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-600"
+              placeholder="Nhập mật khẩu"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-6 text-right">
+            <a href="/recovery" className="text-red-500 hover:text-red-700">
+              Quên mật khẩu?
+            </a>
+          </div>
+
+          <button
+            type="submit"
+            className={`w-full p-3 rounded-md focus:outline-none focus:ring-2 ${
+              isLoading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-blue-600 hover:bg-blue-700 text-white"
+            }`}
+            disabled={isLoading} // Disable button when loading
+          >
+            Đăng nhập
+          </button>
+        </form>
+
+        <div className="my-4 text-center">
+          <span className="text-gray-500">Hoặc</span>
+        </div>
+
+        <GoogleLogin
+          clientId={clientId}
+          buttonText="Tiếp tục với Google"
+          onSuccess={handleGoogleSuccess}
+          onFailure={handleGoogleFailure}
+          cookiePolicy={"single_host_origin"}
+          className="w-full border-2 border-red-600 text-red-600 p-4 rounded-md hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-500 font-bold"
+        />
+
+        <div className="mt-4 text-center">
+          <p className="text-sm text-gray-500">
+            Chưa có tài khoản?{" "}
+            <a href="/register" className="text-blue-600 hover:underline">
+              Đăng ký ngay!
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <ToastContainer />
+    </div>
+  );
+}
+
+export default Login;
