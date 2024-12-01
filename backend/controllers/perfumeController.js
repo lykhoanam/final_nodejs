@@ -79,23 +79,21 @@ const addToCart = async (req, res) => {
 const getCart = (req, res) => {
     const userId = req.body.userId; // Extract userId from query parameter
 
-    if (!userId) {
-        return res.status(400).send("User ID is required");
-    }
-
     try {
         const cart = cartModel.getCartByUserId(userId); // Get cart data by userId
 
-        if (!cart) {
-            return res.status(404).send("Cart not found for this user");
+        if (!cart || !cart.items) {
+            return res.status(200).json([]); // Return an empty array if cart or items are not found
         }
 
-        res.status(200).json(cart.items); // Send the cart items as response
+        // If the cart has items, send the cart items as a response
+        res.status(200).json(cart.items); 
     } catch (error) {
         console.error("Error fetching cart data:", error);
         res.status(500).send("Internal Server Error");
     }
 };
+
 
 const updateCart = (req, res) => {
     const { userId, id, quantity } = req.body; 

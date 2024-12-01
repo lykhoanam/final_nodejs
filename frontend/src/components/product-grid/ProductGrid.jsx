@@ -98,6 +98,14 @@ function ProductGrid({ category }) {
         return products.slice(0, endIndex);
     };
 
+    const formatPrice = (price) => {
+        return new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+        }).format(price);
+    };
+    
+
     return (
         <>
             <div className="max-w-screen-2xl mx-auto p-9 flex flex-col md:flex-col lg:flex-row">
@@ -123,60 +131,46 @@ function ProductGrid({ category }) {
                     </div>
 
                     <div className="min-h-[80%]">
-                        <ul className="mt-2 mb-12 product-list overflow-hidden">
-                            {/* Renders products */}
+                        <ul className="mt-2 mb-12 product-list grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                             {getPaginatedData().length > 0 ? (
                                 getPaginatedData().map((product) => {
                                     return (
                                         <li
                                             key={product.id}
-                                            className="flex flex-col product-item justify-between"
+                                            className="flex flex-col product-item justify-between items-center bg-white shadow-md rounded-lg p-4"
                                         >
                                             <a
                                                 href={`products/${product.id}`}
-                                                className="hover:underline flex flex-col"
+                                                className="hover:underline flex flex-col items-center"
                                             >
                                                 <LazyLoadImage
                                                     effect="blur"
                                                     src={product.image}
                                                     alt={product.description}
-                                                    width={250}
-                                                    height={250}
+                                                    className="w-full h-auto aspect-[1/1] max-w-[80%] mx-auto"
                                                 />
 
-                                                <span className="text-base">
-                                                    {product.name}
-                                                </span>
+                                                <span className="text-base text-center mt-2">{product.name}</span>
                                             </a>
 
-                                            <StarRatings
-                                                rating={product.star}
-                                            />
+                                            <StarRatings rating={product.star} />
 
-                                            <p className="h-fit text-sm my-1">
-                                                {product.body}
-                                            </p>
+                                            <p className="h-fit text-sm my-1 text-center">{product.body}</p>
 
-                                            {product.discounted_price ? (
+                                            {product.discount ? (
                                                 <div className="float-left">
                                                     <span className="text-base line-through pr-2">
-                                                        {product.price}₫
+                                                        {formatPrice(product.price)}
                                                     </span>
                                                     <span className="text-emerald-600 text-lg">
-                                                        {
-                                                            product.discounted_price
-                                                        }₫
+                                                        {formatPrice(product.price - product.price * 0.01 * product.discount)}
                                                     </span>
                                                 </div>
                                             ) : (
-                                                <span className="text-lg">
-                                                    {product.price}₫
-                                                </span>
+                                                <span className="text-lg">{formatPrice(product.price)}</span>
                                             )}
 
-                                            <AddToCartButton
-                                                product={product}
-                                            />
+                                            <AddToCartButton product={product} />
                                         </li>
                                     );
                                 })
@@ -187,6 +181,8 @@ function ProductGrid({ category }) {
                             )}
                         </ul>
                     </div>
+
+
 
                     <div className="flex justify-center mx-auto">
                         <div className="d-grid text-center">

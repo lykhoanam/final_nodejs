@@ -26,6 +26,13 @@ function ProductPage() {
         fetchProductData();
     }, [id]); // Make sure the product data is fetched when the id changes
 
+    const formatPrice = (price) => {
+        return new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+        }).format(price);
+    };
+
     return (
         <>
             <div className="max-w-screen-2xl mx-auto p-9 flex flex-col lg:flex-row mt-6 mb-8">
@@ -52,16 +59,16 @@ function ProductPage() {
                             {product.discount ? (
                                 <div className="float-left pt-3 pb-3 border-b mb-2">
                                     <span className="line-through pr-2 text-lg">
-                                        {product.price}₫
+                                        {formatPrice(product.price)}
                                     </span>
 
                                     <span className="text-emerald-600 text-xl">
-                                        {product.discount}₫
+                                        {formatPrice(product.price - product.price * 0.01 * product.discount)}
                                     </span>
                                 </div>
                             ) : (
                                 <span className="pt-3 pb-3 border-b mb-2 text-xl">
-                                    {product.price}₫
+                                    {formatPrice(product.price)}
                                 </span>
                             )}
 

@@ -14,7 +14,7 @@ function Cart() {
     useEffect(() => {
         const fetchCartData = async () => {
             if (!user) return; 
-        
+    
             try {
                 const response = await fetch("http://localhost:5000/api/perfumes/cart", {
                     method: "POST", 
@@ -22,25 +22,28 @@ function Cart() {
                         "Content-Type": "application/json", 
                     },
                     body: JSON.stringify({
-                        userId: user.user.email, // Send user email in the body
+                        userId: user.user.email,
                     }),
                 });
-        
+    
                 if (!response.ok) {
                     throw new Error("Failed to fetch cart data");
                 }
-        
+    
                 const data = await response.json();
-                setCartItems(data); // Set the cart items in the state
+                if (Array.isArray(data)) {
+                    setCartItems(data); 
+                } else {
+                    throw new Error("Invalid data format"); 
+                }
             } catch (error) {
                 console.error("Error fetching cart:", error);
             }
         };
-        
-        
-
+    
         fetchCartData();
-    }, [user]); // Run this effect whenever the user changes
+    }, [user]); 
+    
 
     return (
         <div className="max-w-screen-2xl mx-auto p-9 flex-col pt-24">

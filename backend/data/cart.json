@@ -10,7 +10,7 @@
         "description": "A luxurious fragrance with a blend of floral and woody notes.",
         "discount": 10,
         "image": "https://i.ibb.co/126PHYL/0369446fe4f54cebd4bbb403a111ce9b.jpg",
-        "price": 120
+        "price": 5000000
       },
       {
         "id": 2,
@@ -20,7 +20,7 @@
         "description": "A refreshing scent inspired by blooming gardens.",
         "discount": 15,
         "image": "https://i.ibb.co/Ntn63s6/0c438b169aac2ca69cbe5df6f69261a2.jpg",
-        "price": 85
+        "price": 8500000
       }
     ]
   }

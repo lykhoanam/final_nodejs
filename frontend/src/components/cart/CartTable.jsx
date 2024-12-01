@@ -18,8 +18,6 @@ function CartTable({ cartItems, setCartItems }) {
 
     const handleRemoveFromCart = async (id) => {
         const userId = user.user.email;
-        setIsLoading(true); // Show the loader
-        // Remove the item locally first
         const updatedCart = cartItems.filter((item) => item.id !== id);
         setCartItems(updatedCart);
         setLocalStorage(updatedCart);
@@ -46,12 +44,13 @@ function CartTable({ cartItems, setCartItems }) {
             }
         } catch (error) {
             console.error('Error:', error);
-        } finally{
-            setIsLoading(false);
-        }
+        } 
         
         if (updatedCart.length === 0) {
-            localStorage.removeItem("cart"); 
+            localStorage.setItem("cart", JSON.stringify([]));  // Lưu giỏ hàng rỗng
+        } else {
+            // Nếu giỏ hàng có sản phẩm, lưu lại giỏ hàng đã cập nhật
+            setLocalStorage(updatedCart);
         }
     };
     
@@ -105,6 +104,7 @@ function CartTable({ cartItems, setCartItems }) {
         if (updatedCart.length !== 0) {
             newItems = updatedCart.map((product) => ({
                 id: product.id,
+                imageUrl: product.imageUrl,
                 name:product.name,
                 quantity: product.quantity,
                 price:product.price,
@@ -120,6 +120,13 @@ function CartTable({ cartItems, setCartItems }) {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
         let counter = 0;
         cart.forEach((item) => (counter += item.quantity));
+    };
+
+    const formatPrice = (price) => {
+        return new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+        }).format(price);
     };
 
     return (
@@ -153,7 +160,7 @@ function CartTable({ cartItems, setCartItems }) {
                                             {product.name}
                                         </span>
                                     </a>
-                                    <span className="pt-2">{product.price}₫</span>
+                                    <span className="pt-2">{formatPrice(product.price)}</span>
                                 </div>
                             </div>
                         </td>
@@ -162,15 +169,15 @@ function CartTable({ cartItems, setCartItems }) {
                             <input
                                 type="number"
                                 min={1}
-                                value={localQuantities[product.id] || product.quantity} // Using local state to control the input value
-                                onChange={(e) => handleQuantityChange(e, product.id)} // Handle changes
+                                value={localQuantities[product.id] || product.quantity} 
+                                onChange={(e) => handleQuantityChange(e, product.id)} 
                                 className="border border-gray-300 px-4 py-1 rounded text-center w-16"
                             />
                         </td>
 
                         <td className="py-10 text-right">
                             <span className="font-medium text-gray-900">
-                                {product.quantity * product.price}₫
+                                {formatPrice(product.quantity * product.price)}
                             </span>
                         </td>
 
