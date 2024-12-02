@@ -10,6 +10,7 @@ import RelatedProducts from "./RelatedProducts";
 
 function ProductPage() {
     const [product, setProduct] = useState(null); // Set initial state to null instead of an empty array
+    const [selectedVariant, setSelectedVariant] = useState(null); // Track selected variant
     const { id } = useParams();
 
     useEffect(() => {
@@ -18,6 +19,8 @@ function ProductPage() {
                 const response = await fetch(`http://localhost:5000/api/perfumes/${id}`);
                 const data = await response.json();
                 setProduct(data);
+                // Set the first variant as the default selected variant
+                setSelectedVariant(data.variants[0]);
             } catch (error) {
                 console.log("Problem with API connectivity", error);
             }
@@ -25,6 +28,10 @@ function ProductPage() {
 
         fetchProductData();
     }, [id]); // Make sure the product data is fetched when the id changes
+
+    const handleVariantChange = (variant) => {
+        setSelectedVariant(variant);
+    };
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('vi-VN', {
@@ -46,8 +53,8 @@ function ProductPage() {
                                 effect="blur"
                                 src={product.image}
                                 alt={product.description}
-                                width={300}
-                                height={300}
+                                width={400}
+                                height={400}
                             />
                         </div>
 
@@ -59,16 +66,16 @@ function ProductPage() {
                             {product.discount ? (
                                 <div className="float-left pt-3 pb-3 border-b mb-2">
                                     <span className="line-through pr-2 text-lg">
-                                        {formatPrice(product.price)}
+                                        {formatPrice(selectedVariant.price)}
                                     </span>
 
                                     <span className="text-emerald-600 text-xl">
-                                        {formatPrice(product.price - product.price * 0.01 * product.discount)}
+                                        {formatPrice(selectedVariant.price - selectedVariant.price * 0.01 * product.discount)}
                                     </span>
                                 </div>
                             ) : (
                                 <span className="pt-3 pb-3 border-b mb-2 text-xl">
-                                    {formatPrice(product.price)}
+                                    {formatPrice(selectedVariant.price)}
                                 </span>
                             )}
 
@@ -76,10 +83,24 @@ function ProductPage() {
                                 {product.description}
                             </p>
 
-                            <p className="pt-3 pb-3 w-full text-base">
-                            </p>
+                            <div className="pt-3 pb-3">
+                                <label className="text-lg mr-2">Size:</label>
+                                <select
+                                    onChange={(e) =>
+                                        handleVariantChange(product.variants.find(variant => variant.size === e.target.value))
+                                    }
+                                    value={selectedVariant ? selectedVariant.size : ""}
+                                    className="border p-2"
+                                >
+                                    {product.variants.map((variant) => (
+                                        <option key={variant.size} value={variant.size}>
+                                            {variant.size}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
 
-                            <AddToCartButton product={product} />
+                            <AddToCartButton product={product} variant={selectedVariant} />
                         </div>
                     </div>
                 ) : (

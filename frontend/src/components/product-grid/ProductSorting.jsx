@@ -5,11 +5,11 @@ const ProductSorting = ({ products, setSortedProducts }) => {
     const [sortCriteria, setSortCriteria] = useState(""); // Used to update state of HTML select value
 
     const options = [
-        { value: "Featured", label: "Featured" },
-        { value: "A-Z", label: "Alphabetical, A - Z" },
-        { value: "Z-A", label: "Alphabetical, Z - A" },
-        { value: "PriceAsc", label: "Price Ascending" },
-        { value: "PriceDesc", label: "Price Descending" },
+        { value: "Featured", label: "Tính năng" },
+        { value: "A-Z", label: "Bảng chữ cái, A - Z" },
+        { value: "Z-A", label: "Bảng chữ cái, Z - A" },
+        { value: "PriceAsc", label: "Giá tăng dần" },
+        { value: "PriceDesc", label: "Giá giảm dần" },
     ];
 
     const handleSort = (selectedOption) => {
@@ -22,10 +22,10 @@ const ProductSorting = ({ products, setSortedProducts }) => {
                 sortedProducts.sort((a, b) => a.id - b.id);
                 break;
             case "A-Z":
-                sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
+                sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
                 break;
             case "Z-A":
-                sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
+                sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
                 break;
             case "PriceAsc":
                 // Sorts price low to high, uses discounted_price if available
@@ -72,7 +72,7 @@ const ProductSorting = ({ products, setSortedProducts }) => {
                 <svg width="16" height="12" viewBox="0 0 16 12">
                     <path d="M11.87 3.8a2.5 2.5 0 0 1-4.74 0H1.25a.75.75 0 1 1 0-1.5H7.1a2.5 2.5 0 0 1 4.8 0h2.85a.75.75 0 0 1 0 1.5h-2.88ZM10.5 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM.5 9.05c0-.41.34-.75.75-.75H4.1a2.5 2.5 0 0 1 4.8 0h5.85a.75.75 0 0 1 0 1.5H8.87a2.5 2.5 0 0 1-4.74 0H1.25a.75.75 0 0 1-.75-.75Zm6 .95a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path>
                 </svg>
-                Sort by:
+                Sắp xếp theo:
             </label>
             <Select
                 defaultValue={options[0]}

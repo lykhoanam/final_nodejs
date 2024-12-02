@@ -5,9 +5,19 @@
       "quantity": 50,
       "star": 4.5,
       "description": "A luxurious fragrance with a blend of floral and woody notes.",
-      "discount": 10,
+      "discount": 0,
       "image": "https://i.ibb.co/126PHYL/0369446fe4f54cebd4bbb403a111ce9b.jpg",
-      "price": 5000000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 2,
@@ -15,9 +25,19 @@
       "quantity": 30,
       "star": 4.2,
       "description": "A refreshing scent inspired by blooming gardens.",
-      "discount": 15,
+      "discount": 0,
       "image": "https://i.ibb.co/Ntn63s6/0c438b169aac2ca69cbe5df6f69261a2.jpg",
-      "price": 8500000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 3,
@@ -25,9 +45,19 @@
       "quantity": 40,
       "star": 4.8,
       "description": "Sophisticated and subtle, perfect for evening wear.",
-      "discount": 20,
+      "discount":0,
       "image": "https://i.ibb.co/vwB2rgr/713ff5fccfb22ef0eed5afeb65158041.jpg",
-      "price": 1400000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 4,
@@ -35,9 +65,19 @@
       "quantity": 25,
       "star": 4.0,
       "description": "A light and breezy fragrance reminiscent of the sea.",
-      "discount": 5,
+      "discount": 0,
       "image": "https://i.ibb.co/VH99QKG/e679333e48b1444a87d7fd7c165c0139.jpg",
-      "price": 6000000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 5,
@@ -45,9 +85,19 @@
       "quantity": 35,
       "star": 4.6,
       "description": "A warm and enchanting aroma with hints of amber.",
-      "discount": 12,
+      "discount": 0,
       "image": "https://i.ibb.co/mNdPQfS/46ee0b8c3759e1df89dd045c4f23f985.jpg",
-      "price": 9500000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 6,
@@ -55,9 +105,19 @@
       "quantity": 50,
       "star": 4.1,
       "description": "A vibrant citrus fragrance with floral undertones.",
-      "discount": 10,
+      "discount": 0,
       "image": "https://i.ibb.co/2W51gG9/5dcc3b117c99694cfaa930beb78707fb.jpg",
-      "price": 7000000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 7,
@@ -65,9 +125,19 @@
       "quantity": 20,
       "star": 4.7,
       "description": "A rich and velvety rose scent with a modern twist.",
-      "discount": 18,
+      "discount": 0,
       "image": "https://i.ibb.co/Pg3nqCx/6d072b4824ea618ccd5c24f58f5d741d.jpg",
-      "price": 11000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 8,
@@ -75,9 +145,19 @@
       "quantity": 30,
       "star": 4.4,
       "description": "A mysterious fragrance with deep, musky tones.",
-      "discount": 15,
+      "discount": 0,
       "image": "https://i.ibb.co/Jmrm7q8/c0a32d749fbf6d78632ac6be35987b9d.jpg",
-      "price": 900000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 9,
@@ -85,9 +165,19 @@
       "quantity": 45,
       "star": 4.3,
       "description": "Refreshing and light, perfect for a sunny day.",
-      "discount": 8,
+      "discount": 0,
       "image": "https://i.ibb.co/YB76ZdY/2f53bad20135d7aaa2694d57e4d89c19.jpg",
-      "price": 550000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 10,
@@ -95,9 +185,19 @@
       "quantity": 15,
       "star": 4.9,
       "description": "A captivating fragrance with amber and spice notes.",
-      "discount": 25,
+      "discount":0,
       "image": "https://i.ibb.co/Bs08mkP/72d2504ee067b4df8d10663c2f807d7f.jpg",
-      "price": 1500000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 11,
@@ -105,9 +205,19 @@
       "quantity": 60,
       "star": 4.1,
       "description": "A delightful lilac fragrance for everyday use.",
-      "discount": 10,
+      "discount": 0,
       "image": "https://i.ibb.co/nQ83YvH/2fb9d281ce89350c87d919d35572d58d.jpg",
-      "price": 6500000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 12,
@@ -115,9 +225,19 @@
       "quantity": 10,
       "star": 4.8,
       "description": "A luxurious and exotic oud-based fragrance.",
-      "discount": 30,
+      "discount": 0,
       "image": "https://i.ibb.co/PrXjwGV/a62fde092aa7d4fc80b0316bbde25935.jpg",
-      "price": 2000000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 13,
@@ -125,9 +245,19 @@
       "quantity": 50,
       "star": 4.0,
       "description": "A bouquet of fresh and vibrant floral notes.",
-      "discount": 12,
+      "discount": 0,
       "image": "https://i.ibb.co/P54GXsC/d326e64e2e979f9d14b9df006d2d917b.jpg",
-      "price": 8000000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 14,
@@ -135,9 +265,19 @@
       "quantity": 35,
       "star": 4.5,
       "description": "A unique and daring blend of exotic spices.",
-      "discount": 18,
+      "discount": 0,
       "image": "https://i.ibb.co/XXhTQFt/5074b5027547200eeb38f1feeeecfd2d.jpg",
-      "price": 130000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 15,
@@ -145,9 +285,19 @@
       "quantity": 25,
       "star": 4.6,
       "description": "A natural woody scent with earthy undertones.",
-      "discount": 20,
+      "discount": 0,
       "image": "https://i.ibb.co/LZ7hTMZ/13c075f62e60c006f47b9d13c67399df.jpg",
-      "price": 100000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 16,
@@ -155,9 +305,19 @@
       "quantity": 40,
       "star": 4.3,
       "description": "A mesmerizing jasmine fragrance that lingers.",
-      "discount": 15,
+      "discount": 0,
       "image": "https://i.ibb.co/JRm4w5G/b010b2d2a70d34a41a6de2f86309f0fa.jpg",
-      "price": 75000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 17,
@@ -165,9 +325,19 @@
       "quantity": 55,
       "star": 4.2,
       "description": "A calming lavender scent perfect for relaxation.",
-      "discount": 8,
+      "discount": 0,
       "image": "https://i.ibb.co/hFCYtMG/4522b1d5ae6e209996973e5ad615daab.jpg",
-      "price": 6000000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 18,
@@ -175,9 +345,19 @@
       "quantity": 30,
       "star": 4.7,
       "description": "A bold and passionate scent for special occasions.",
-      "discount": 22,
+      "discount": 0,
       "image": "https://i.ibb.co/DL0GhfC/d30d7c2732bf1b35a5757335f374434b.jpg",
-      "price": 125000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 19,
@@ -185,9 +365,19 @@
       "quantity": 20,
       "star": 4.4,
       "description": "A clean and pure scent, perfect for minimalists.",
-      "discount": 10,
+      "discount": 0,
       "image": "https://i.ibb.co/sKrscC7/perfume1.jpg",
-      "price": 500000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 20,
@@ -195,9 +385,19 @@
       "quantity": 45,
       "star": 4.6,
       "description": "A delightful rose fragrance with hints of sweetness.",
-      "discount": 18,
+      "discount": 0,
       "image": "https://i.ibb.co/F6xdWyy/perfume2.jpg",
-      "price": 900000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 20,
@@ -205,9 +405,19 @@
       "quantity": 30,
       "star": 4.4,
       "description": "A warm and grounding cedarwood fragrance.",
-      "discount": 15,
+      "discount": 0,
       "image": "https://i.ibb.co/F6xdWyy/perfume2.jpg",
-      "price": 700000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 21,
@@ -215,9 +425,19 @@
       "quantity": 40,
       "star": 4.6,
       "description": "A captivating blend of natural florals and musk.",
-      "discount": 15,
+      "discount": 0,
       "image": "https://i.ibb.co/126PHYL/0369446fe4f54cebd4bbb403a111ce9b.jpg",
-      "price": 120000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 22,
@@ -225,9 +445,19 @@
       "quantity": 35,
       "star": 4.5,
       "description": "A refreshing and calming woody aroma.",
-      "discount": 10,
+      "discount": 0,
       "image": "https://i.ibb.co/Ntn63s6/0c438b169aac2ca69cbe5df6f69261a2.jpg",
-      "price": 8000000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 23,
@@ -235,9 +465,19 @@
       "quantity": 50,
       "star": 4.7,
       "description": "A rich and luxurious fragrance for special occasions.",
-      "discount": 20,
+      "discount": 0,
       "image": "https://i.ibb.co/vwB2rgr/713ff5fccfb22ef0eed5afeb65158041.jpg",
-      "price": 1400000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 24,
@@ -245,9 +485,19 @@
       "quantity": 30,
       "star": 4.3,
       "description": "A cool and refreshing scent with oceanic tones.",
-      "discount": 12,
+      "discount": 0,
       "image": "https://i.ibb.co/VH99QKG/e679333e48b1444a87d7fd7c165c0139.jpg",
-      "price": 750000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 25,
@@ -255,9 +505,19 @@
       "quantity": 20,
       "star": 4.8,
       "description": "A seductive amber fragrance with warm undertones.",
-      "discount": 18,
+      "discount": 0,
       "image": "https://i.ibb.co/mNdPQfS/46ee0b8c3759e1df89dd045c4f23f985.jpg",
-      "price": 100000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 26,
@@ -265,9 +525,19 @@
       "quantity": 30,
       "star": 4.2,
       "description": "A light and airy fragrance for daily wear.",
-      "discount": 10,
+      "discount":0,
       "image": "https://i.ibb.co/2W51gG9/5dcc3b117c99694cfaa930beb78707fb.jpg",
-      "price": 600000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 27,
@@ -275,9 +545,19 @@
       "quantity": 45,
       "star": 4.7,
       "description": "A deep and mysterious fragrance for night outings.",
-      "discount": 15,
+      "discount": 0,
       "image": "https://i.ibb.co/Pg3nqCx/6d072b4824ea618ccd5c24f58f5d741d.jpg",
-      "price": 11500000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 28,
@@ -285,9 +565,19 @@
       "quantity": 40,
       "star": 4.4,
       "description": "A sweet floral scent with a golden touch.",
-      "discount": 18,
+      "discount": 0,
       "image": "https://i.ibb.co/Jmrm7q8/c0a32d749fbf6d78632ac6be35987b9d.jpg",
-      "price": 9500000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 29,
@@ -295,9 +585,19 @@
       "quantity": 25,
       "star": 4.5,
       "description": "A sparkling and refreshing fragrance.",
-      "discount": 12,
+      "discount": 0,
       "image": "https://i.ibb.co/YB76ZdY/2f53bad20135d7aaa2694d57e4d89c19.jpg",
-      "price": 7000000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 30,
@@ -305,9 +605,19 @@
       "quantity": 50,
       "star": 4.8,
       "description": "A fiery amber fragrance with spicy accents.",
-      "discount": 22,
+      "discount":0,
       "image": "https://i.ibb.co/Bs08mkP/72d2504ee067b4df8d10663c2f807d7f.jpg",
-      "price": 1450000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 31,
@@ -315,9 +625,19 @@
       "quantity": 20,
       "star": 4.1,
       "description": "A calming fragrance perfect for relaxation.",
-      "discount": 15,
+      "discount": 0,
       "image": "https://i.ibb.co/nQ83YvH/2fb9d281ce89350c87d919d35572d58d.jpg",
-      "price": 6500000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 32,
@@ -325,9 +645,19 @@
       "quantity": 10,
       "star": 4.9,
       "description": "A majestic oud fragrance with royal undertones.",
-      "discount": 25,
+      "discount": 0,
       "image": "https://i.ibb.co/PrXjwGV/a62fde092aa7d4fc80b0316bbde25935.jpg",
-      "price": 210000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 33,
@@ -335,9 +665,19 @@
       "quantity": 30,
       "star": 4.3,
       "description": "A harmonious blend of fresh floral notes.",
-      "discount": 10,
+      "discount": 0,
       "image": "https://i.ibb.co/P54GXsC/d326e64e2e979f9d14b9df006d2d917b.jpg",
-      "price": 750000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 34,
@@ -345,9 +685,19 @@
       "quantity": 35,
       "star": 4.6,
       "description": "A bold fragrance with spicy and woody tones.",
-      "discount": 20,
+      "discount": 0,
       "image": "https://i.ibb.co/XXhTQFt/5074b5027547200eeb38f1feeeecfd2d.jpg",
-      "price": 12000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 35,
@@ -355,9 +705,19 @@
       "quantity": 40,
       "star": 4.7,
       "description": "An earthy scent that connects with nature.",
-      "discount": 18,
+      "discount": 0,
       "image": "https://i.ibb.co/LZ7hTMZ/13c075f62e60c006f47b9d13c67399df.jpg",
-      "price": 10500000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 36,
@@ -365,9 +725,19 @@
       "quantity": 30,
       "star": 4.5,
       "description": "A charming jasmine fragrance with sweet undertones.",
-      "discount": 15,
+      "discount": 0,
       "image": "https://i.ibb.co/JRm4w5G/b010b2d2a70d34a41a6de2f86309f0fa.jpg",
-      "price": 8500000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 37,
@@ -375,9 +745,19 @@
       "quantity": 25,
       "star": 4.3,
       "description": "A soft lavender fragrance for a peaceful day.",
-      "discount": 12,
+      "discount": 0,
       "image": "https://i.ibb.co/hFCYtMG/4522b1d5ae6e209996973e5ad615daab.jpg",
-      "price": 55000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 38,
@@ -385,9 +765,19 @@
       "quantity": 50,
       "star": 4.7,
       "description": "An exotic tropical fragrance to awaken your senses.",
-      "discount": 20,
+      "discount": 0,
       "image": "https://i.ibb.co/DL0GhfC/d30d7c2732bf1b35a5757335f374434b.jpg",
-      "price": 8500000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 39,
@@ -395,9 +785,19 @@
       "quantity": 30,
       "star": 4.9,
       "description": "A powerful blend of rosewood and spicy notes.",
-      "discount": 22,
+      "discount": 0,
       "image": "https://i.ibb.co/sKrscC7/perfume1.jpg",
-      "price": 12500000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
     },
     {
       "id": 40,
@@ -405,9 +805,819 @@
       "quantity": 20,
       "star": 4.4,
       "description": "A cedarwood fragrance with aromatic spices.",
-      "discount": 15,
+      "discount": 0,
       "image": "https://i.ibb.co/F6xdWyy/perfume2.jpg",
-      "price": 7520000
+      "category": "For woman",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3520000
+        },
+        {
+          "size": "100ml",
+          "price": 7520000
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "name": "Cedar Aroma",
+      "quantity": 20,
+      "star": 4.4,
+      "description": "A cedarwood fragrance with aromatic spices.",
+      "discount": 0,
+      "image": "https://i.ibb.co/4pc4Cr1/f56e87f8dd19391f0c013d21baa55239.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2920000
+        },
+        {
+          "size": "100ml",
+          "price": 6520000
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "name": "Spiced Musk",
+      "quantity": 25,
+      "star": 4.6,
+      "description": "A rich musky scent with hints of spices and earth.",
+      "discount": 10,
+      "image": "https://i.ibb.co/fQs9dPr/6c565e25278124702e7126aeb4449d9b.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3300000
+        },
+        {
+          "size": "100ml",
+          "price": 7100000
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "name": "Leather Woods",
+      "quantity": 18,
+      "star": 4.5,
+      "description": "A robust blend of leather and woodsy aromas.",
+      "discount": 5,
+      "image": "https://i.ibb.co/SvDPNjs/f337b62dca7314d76fcbe55aa2d896b4.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3000000
+        },
+        {
+          "size": "100ml",
+          "price": 6800000
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "name": "Ocean Breeze",
+      "quantity": 30,
+      "star": 4.3,
+      "description": "A fresh, aquatic fragrance with notes of sea breeze.",
+      "discount": 0,
+      "image": "https://i.ibb.co/Yb3fcvb/56d772526edbbeec129f57729c95310b.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2700000
+        },
+        {
+          "size": "100ml",
+          "price": 6000000
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "name": "Smoky Leather",
+      "quantity": 22,
+      "star": 4.7,
+      "description": "An intense, smoky leather fragrance with a woody base.",
+      "discount": 15,
+      "image": "https://i.ibb.co/DzvRK44/82bddf4547df8b97d8709cdd4c7f13da.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3300000
+        },
+        {
+          "size": "100ml",
+          "price": 7000000
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "name": "Forest Rush",
+      "quantity": 15,
+      "star": 4.2,
+      "description": "A green, earthy fragrance inspired by forest walks.",
+      "discount": 0,
+      "image": "https://i.ibb.co/s5wg5h3/fcb98a1fe3c82a78520f4184fd11c3d9.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2800000
+        },
+        {
+          "size": "100ml",
+          "price": 5900000
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Sandalwood Myst",
+      "quantity": 24,
+      "star": 4.5,
+      "description": "A calming fragrance of sandalwood with oriental spices.",
+      "discount": 5,
+      "image": "https://i.ibb.co/JzSRbqH/e416f011750098113a99f33919b017ed.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3500000
+        },
+        {
+          "size": "100ml",
+          "price": 7200000
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "name": "Spicy Amber",
+      "quantity": 20,
+      "star": 4.3,
+      "description": "A warm, spicy fragrance with amber and vanilla notes.",
+      "discount": 0,
+      "image": "https://i.ibb.co/DwrjRnd/c9d121b40838b409ac401deda858d2b3.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3100000
+        },
+        {
+          "size": "100ml",
+          "price": 6900000
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "name": "Mountain Air",
+      "quantity": 16,
+      "star": 4.6,
+      "description": "A refreshing fragrance with a cool, mountain breeze.",
+      "discount": 10,
+      "image": "https://i.ibb.co/4pc4Cr1/f56e87f8dd19391f0c013d21baa55239.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2900000
+        },
+        {
+          "size": "100ml",
+          "price": 6500000
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "name": "Citrus Burst",
+      "quantity": 28,
+      "star": 4.4,
+      "description": "A zesty, fresh fragrance with citrus and mint notes.",
+      "discount": 0,
+      "image": "https://i.ibb.co/fQs9dPr/6c565e25278124702e7126aeb4449d9b.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2700000
+        },
+        {
+          "size": "100ml",
+          "price": 5900000
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "name": "Woodland Escape",
+      "quantity": 21,
+      "star": 4.4,
+      "description": "A fragrance evoking the scent of a deep forest with earthy tones.",
+      "discount": 0,
+      "image": "https://i.ibb.co/4pc4Cr1/f56e87f8dd19391f0c013d21baa55239.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3100000
+        },
+        {
+          "size": "100ml",
+          "price": 6800000
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "name": "Amber Glow",
+      "quantity": 17,
+      "star": 4.5,
+      "description": "A warm, amber fragrance with hints of honey and vanilla.",
+      "discount": 5,
+      "image": "https://i.ibb.co/fQs9dPr/6c565e25278124702e7126aeb4449d9b.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3300000
+        },
+        {
+          "size": "100ml",
+          "price": 7000000
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "name": "Forest Essence",
+      "quantity": 30,
+      "star": 4.2,
+      "description": "A fresh and crisp scent of pine trees and forest greenery.",
+      "discount": 0,
+      "image": "https://i.ibb.co/SvDPNjs/f337b62dca7314d76fcbe55aa2d896b4.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2700000
+        },
+        {
+          "size": "100ml",
+          "price": 5900000
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "name": "Leather Charm",
+      "quantity": 22,
+      "star": 4.6,
+      "description": "A bold leather fragrance with smoky undertones and a touch of musk.",
+      "discount": 0,
+      "image": "https://i.ibb.co/Yb3fcvb/56d772526edbbeec129f57729c95310b.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3500000
+        },
+        {
+          "size": "100ml",
+          "price": 7300000
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "name": "Spicy Citrus",
+      "quantity": 19,
+      "star": 4.3,
+      "description": "A zesty fragrance with a blend of citrus and spicy notes.",
+      "discount": 10,
+      "image": "https://i.ibb.co/DzvRK44/82bddf4547df8b97d8709cdd4c7f13da.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2900000
+        },
+        {
+          "size": "100ml",
+          "price": 6500000
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "name": "Ocean Breeze",
+      "quantity": 26,
+      "star": 4.5,
+      "description": "A refreshing aquatic fragrance with a hint of cool mint.",
+      "discount": 0,
+      "image": "https://i.ibb.co/s5wg5h3/fcb98a1fe3c82a78520f4184fd11c3d9.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2700000
+        },
+        {
+          "size": "100ml",
+          "price": 5900000
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "name": "Mystic Woods",
+      "quantity": 20,
+      "star": 4.3,
+      "description": "A deep, mysterious fragrance with woody and spicy notes.",
+      "discount": 0,
+      "image": "https://i.ibb.co/JzSRbqH/e416f011750098113a99f33919b017ed.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3100000
+        },
+        {
+          "size": "100ml",
+          "price": 6900000
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "name": "Smoky Ember",
+      "quantity": 28,
+      "star": 4.6,
+      "description": "A rich smoky fragrance with hints of amber and leather.",
+      "discount": 5,
+      "image": "https://i.ibb.co/DwrjRnd/c9d121b40838b409ac401deda858d2b3.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3200000
+        },
+        {
+          "size": "100ml",
+          "price": 7000000
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "name": "Citrus Rush",
+      "quantity": 23,
+      "star": 4.4,
+      "description": "A vibrant fragrance with the sharp zest of citrus fruits.",
+      "discount": 0,
+      "image": "https://i.ibb.co/4pc4Cr1/f56e87f8dd19391f0c013d21baa55239.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2800000
+        },
+        {
+          "size": "100ml",
+          "price": 6500000
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "name": "Cedarwood Essence",
+      "quantity": 15,
+      "star": 4.5,
+      "description": "A natural cedarwood fragrance with fresh herbal undertones.",
+      "discount": 10,
+      "image": "https://i.ibb.co/fQs9dPr/6c565e25278124702e7126aeb4449d9b.jpg",
+      "category": "For Him",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3000000
+        },
+        {
+          "size": "100ml",
+          "price": 6800000
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "name": "Cedarwood Essence",
+      "quantity": 15,
+      "star": 4.5,
+      "description": "A natural cedarwood fragrance with fresh herbal undertones.",
+      "discount": 10,
+      "image": "https://i.ibb.co/sjR5jJq/7e3b76010b28be4035362b485a49783d.jpg",
+      "category": "Unisex",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3000000
+        },
+        {
+          "size": "100ml",
+          "price": 6800000
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "name": "Rose Blossom",
+      "quantity": 18,
+      "star": 4.8,
+      "description": "A delicate rose fragrance with soft floral and sweet notes.",
+      "discount": 5,
+      "image": "https://i.ibb.co/C97bmyP/49a9781a0e17799ff5de652b88bf6a24.jpg",
+      "category": "Unisex",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2500000
+        },
+        {
+          "size": "100ml",
+          "price": 6000000
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "name": "Lavender Dreams",
+      "quantity": 20,
+      "star": 4.7,
+      "description": "A soothing lavender scent with calming floral notes.",
+      "discount": 12,
+      "image": "https://i.ibb.co/pfJNC2K/5814484a9bb6cd11108c1a07d3fc08f8.jpg",
+      "category": "Unisex",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2800000
+        },
+        {
+          "size": "100ml",
+          "price": 6500000
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "name": "Sandalwood Serenity",
+      "quantity": 22,
+      "star": 5.0,
+      "description": "A deep sandalwood fragrance with rich, woody undertones.",
+      "discount": 8,
+      "image": "https://i.ibb.co/TqN9hz8/bf75ea0c207c5ff3c985b7b7fadc9aca.jpg",
+      "category": "Unisex",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3500000
+        },
+        {
+          "size": "100ml",
+          "price": 7500000
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "name": "Vanilla Orchid",
+      "quantity": 16,
+      "star": 4.3,
+      "description": "A sweet vanilla fragrance with floral and creamy notes.",
+      "discount": 15,
+      "image": "https://i.ibb.co/nnNHcjD/95380904db4db82e8def6597747f81f7.jpg",
+      "category": "Unisex",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3200000
+        },
+        {
+          "size": "100ml",
+          "price": 7000000
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "name": "Citrus Splash",
+      "quantity": 17,
+      "star": 4.6,
+      "description": "A refreshing citrus fragrance with zesty lemon and lime notes.",
+      "discount": 10,
+      "image": "https://i.ibb.co/WBk2mYX/3d4f5576312b26f5e3e976ac9d12105a.jpg",
+      "category": "Unisex",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2400000
+        },
+        {
+          "size": "100ml",
+          "price": 5900000
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "name": "Minty Fresh",
+      "quantity": 19,
+      "star": 4.4,
+      "description": "A cool mint fragrance with a burst of freshness.",
+      "discount": 18,
+      "image": "https://i.ibb.co/hMw31wz/f51eda8d7e9509ab968acc0882d1729e.jpg",
+      "category": "Unisex",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2700000
+        },
+        {
+          "size": "100ml",
+          "price": 6200000
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "name": "Ocean Breeze",
+      "quantity": 21,
+      "star": 4.2,
+      "description": "A refreshing aquatic fragrance with oceanic and airy notes.",
+      "discount": 10,
+      "image": "https://i.ibb.co/nCTnkhj/d444638502489cd6d5d3f0083bb41d71.jpg",
+      "category": "Unisex",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3300000
+        },
+        {
+          "size": "100ml",
+          "price": 7100000
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "name": "Amber Glow",
+      "quantity": 14,
+      "star": 4.9,
+      "description": "A warm amber fragrance with spicy and woody undertones.",
+      "discount": 7,
+      "image": "https://i.ibb.co/zZDqrBs/a356871f83f52178f402205d8e14c7bb.jpg",
+      "category": "Unisex",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3400000
+        },
+        {
+          "size": "100ml",
+          "price": 7200000
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "name": "Jasmine Blossom",
+      "quantity": 12,
+      "star": 4.8,
+      "description": "A floral fragrance with rich jasmine and soft musky notes.",
+      "discount": 5,
+      "image": "https://i.ibb.co/h7dkx22/4088df7fa4773a26896faecbea2455a3.jpg",
+      "category": "Unisex",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3100000
+        },
+        {
+          "size": "100ml",
+          "price": 6900000
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "name": "Spiced Cinnamon",
+      "quantity": 11,
+      "star": 4.5,
+      "description": "A warm, spicy fragrance with rich cinnamon and a hint of sweetness.",
+      "discount": 8,
+      "image": "https://i.ibb.co/XWmStb2/9e4b05b7f60c0d90880f2871e5432541.jpg",
+      "category": "Unisex",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 2600000
+        },
+        {
+          "size": "100ml",
+          "price": 6400000
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "name": "Fruity Delight",
+      "quantity": 13,
+      "star": 4.7,
+      "description": "A sweet, fruity fragrance with notes of berry and citrus.",
+      "discount": 10,
+      "image": "https://i.ibb.co/pf7ycFn/75220427a71d484f6c209369cb7cef51.jpg",
+      "category": "Unisex",
+      "variants": [
+        {
+          "size": "50ml",
+          "price": 3200000
+        },
+        {
+          "size": "100ml",
+          "price": 6900000
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "name": "Citrus Splash Mist",
+      "quantity": 18,
+      "star": 4.4,
+      "description": "A refreshing citrus mist with zesty lemon and lime notes.",
+      "discount": 0,
+      "image": "https://i.ibb.co/ZHGzbs2/5c87ac1bb5d2e73613a5e5860495ce10.jpg",
+      "category": "Body Mist",
+      "variants": [
+        {
+          "size": "150ml",
+          "price": 2200000
+        },
+        {
+          "size": "250ml",
+          "price": 5000000
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "name": "Ocean Breeze Mist",
+      "quantity": 20,
+      "star": 4.6,
+      "description": "A cool, aquatic body mist with oceanic and airy notes.",
+      "discount": 0,
+      "image": "https://i.ibb.co/RjfnFx1/25a2f6b618918d4a8aaffeb4158b09b0.jpg",
+      "category": "Body Mist",
+      "variants": [
+        {
+          "size": "150ml",
+          "price": 2400000
+        },
+        {
+          "size": "250ml",
+          "price": 5400000
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "name": "Vanilla Blossom Mist",
+      "quantity": 22,
+      "star": 4.5,
+      "description": "A sweet vanilla mist with creamy and floral notes.",
+      "discount": 0,
+      "image": "https://i.ibb.co/5hh6fTD/260b520855d21acb1acc3e6d68faa7d4.jpg",
+      "category": "Body Mist",
+      "variants": [
+        {
+          "size": "150ml",
+          "price": 2300000
+        },
+        {
+          "size": "250ml",
+          "price": 5200000
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "name": "Jasmine Mist",
+      "quantity": 19,
+      "star": 4.8,
+      "description": "A floral jasmine mist with soft, musky undertones.",
+      "discount": 0,
+      "image": "https://i.ibb.co/jJF3rWJ/c0fc003ff566579cd8539f5db5d4a682.jpg",
+      "category": "Body Mist",
+      "variants": [
+        {
+          "size": "150ml",
+          "price": 2400000
+        },
+        {
+          "size": "250ml",
+          "price": 5100000
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "name": "Lavender Serenity Mist",
+      "quantity": 17,
+      "star": 4.7,
+      "description": "A calming lavender mist with soothing floral notes.",
+      "discount": 0,
+      "image": "https://i.ibb.co/xz8b3PS/a6db06586aa7d33c2c49fb34252760ff.jpg",
+      "category": "Body Mist",
+      "variants": [
+        {
+          "size": "150ml",
+          "price": 2500000
+        },
+        {
+          "size": "250ml",
+          "price": 5300000
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "name": "Mint Fresh Mist",
+      "quantity": 21,
+      "star": 4.3,
+      "description": "A cool mint body mist that provides a refreshing burst.",
+      "discount": 0,
+      "image": "https://i.ibb.co/gtTqLT7/20258dc799df54a76d1ddc4d10b48ccf.jpg",
+      "category": "Body Mist",
+      "variants": [
+        {
+          "size": "150ml",
+          "price": 2200000
+        },
+        {
+          "size": "250ml",
+          "price": 5000000
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "name": "Coconut Breeze Mist",
+      "quantity": 16,
+      "star": 4.6,
+      "description": "A tropical coconut mist with sweet, creamy notes.",
+      "discount": 0,
+      "image": "https://i.ibb.co/kJyn9Yh/c79d12ddee40a0945b590cd14fcf60d4.jpg",
+      "category": "Body Mist",
+      "variants": [
+        {
+          "size": "150ml",
+          "price": 2400000
+        },
+        {
+          "size": "250ml",
+          "price": 5100000
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "name": "Amber Glow Mist",
+      "quantity": 18,
+      "star": 4.9,
+      "description": "A warm amber mist with spicy and rich undertones.",
+      "discount": 0,
+      "image": "https://i.ibb.co/GsvKZ9s/6b94abf02d385e00281852da5f7f0f3a.jpg",
+      "category": "Body Mist",
+      "variants": [
+        {
+          "size": "150ml",
+          "price": 2600000
+        },
+        {
+          "size": "250ml",
+          "price": 5500000
+        }
+      ]
     }
   ]
   

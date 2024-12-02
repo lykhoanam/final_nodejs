@@ -82,7 +82,7 @@ function App({ navigationItems }) {
 
     return (
         
-        <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
             {isLoading && <Loader text="Hệ thống đang xử lý..." />} {/* Show loader while loading */}
 
             {/* Logo */}
@@ -136,24 +136,51 @@ function App({ navigationItems }) {
                                         : "mb-4 lg:mb-0 lg:mx-3"
                                 }
                             >
-                                Home
+                                For Her
                             </NavLink>
-                            {navigationItems.map((item) => (
-                                <NavLink
-                                    reloadDocument
-                                    key={item}
-                                    to={item.toLowerCase()}
-                                    className={({ isActive, isPending }) =>
-                                        isPending
-                                            ? "pending"
-                                            : isActive
-                                            ? "mb-4 lg:mb-0 lg:mx-3 lg:border-b lg:border-gray-700 lg:pb-1.5 relative top-1"
-                                            : "mb-4 lg:mb-0 lg:mx-3"
-                                    }
-                                >
-                                    {item}
-                                </NavLink>
-                            ))}
+
+                            <NavLink
+                                reloadDocument
+                                to="/forhim"
+                                className={({ isActive, isPending }) =>
+                                    isPending
+                                        ? "pending"
+                                        : isActive
+                                        ? "mb-4 lg:mb-0 lg:mx-3 lg:border-b lg:border-gray-700 lg:pb-1.5 relative top-1"
+                                        : "mb-4 lg:mb-0 lg:mx-3"
+                                }
+                            >
+                                For Him
+                            </NavLink>
+
+                            <NavLink
+                                reloadDocument
+                                to="/unisex"
+                                className={({ isActive, isPending }) =>
+                                    isPending
+                                        ? "pending"
+                                        : isActive
+                                        ? "mb-4 lg:mb-0 lg:mx-3 lg:border-b lg:border-gray-700 lg:pb-1.5 relative top-1"
+                                        : "mb-4 lg:mb-0 lg:mx-3"
+                                }
+                            >
+                                Unisex
+                            </NavLink>
+
+                            <NavLink
+                                reloadDocument
+                                to="/bodymist"
+                                className={({ isActive, isPending }) =>
+                                    isPending
+                                        ? "pending"
+                                        : isActive
+                                        ? "mb-4 lg:mb-0 lg:mx-3 lg:border-b lg:border-gray-700 lg:pb-1.5 relative top-1"
+                                        : "mb-4 lg:mb-0 lg:mx-3"
+                                }
+                            >
+                                Body Mist
+                            </NavLink>
+                            
                             <NavLink
                                 reloadDocument
                                 to="cart"
@@ -172,20 +199,30 @@ function App({ navigationItems }) {
                 </div>
 
                 {/* Right side cart, profile and search icons */}
-                <div id="header-icons" className="hidden lg:flex">
-                    {/* Search Icon */}
-                    <a
-                        href="#"
-                        className="px-4 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-300"
-                    >
-                        <svg width="24" height="24" viewBox="0 0 24 24">
-                            <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M18 9.5a7 7 0 1 1-14 0 7 7 0 0 1 14 0Zm-1.736 6.024a8 8 0 1 1 .71-.704l4.62 4.62a.5.5 0 1 1-.707.706l-4.623-4.622Z"
-                            ></path>
-                        </svg>
-                    </a>
+                <div id="header-icons" className="hidden lg:flex items-center">
+                    {/* Search Icon
+                    <div className="relative flex items-center">
+                        {isSearchOpen && (
+                            <input
+                                ref={searchInputRef}
+                                type="text"
+                                placeholder="Search..."
+                                className="border border-gray-300 rounded-lg px-4 py-2 w-64 mr-2 transition-all duration-300"
+                            />
+                        )}
+                        <button
+                            onClick={toggleSearch}
+                            className="px-4 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-300"
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    fillRule="evenodd"
+                                    clipRule="evenodd"
+                                    d="M18 9.5a7 7 0 1 1-14 0 7 7 0 0 1 14 0Zm-1.736 6.024a8 8 0 1 1 .71-.704l4.62 4.62a.5.5 0 1 1-.707.706l-4.623-4.622Z"
+                                ></path>
+                            </svg>
+                        </button>
+                    </div> */}
 
                     {/* Cart Icon */}
                     <a

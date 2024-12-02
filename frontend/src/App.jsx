@@ -21,7 +21,7 @@ const clientId = "1074315812564-92s9klc0eos45ujtefj613bkualvulq0.apps.googleuser
 
 function App() {
     const [cartCounter, setCartCounter] = useState(0);
-    const navigationItems = ["Shoes", "Bags", "Hats"];
+    const navigationItems = ["For Him", "Unisex", "Body Mist"];
 
     useEffect(() => {
       function start(){
@@ -52,46 +52,71 @@ function App() {
                         element={
                           <>
                             <CategoryDescription
-                                desc="Experience the latest in fashion trends! Explore a curated collection of stylish shoes, trendy bags, and chic hats for a complete and elevated look. Shop now and define your personal style"
-                                title="Products"
-                            />
-                            <ProductGrid />
+                              title="Discover our exquisite perfume collection"
+                              desc="Explore our unique, refined perfume collection, perfect for every style and personality. Find your favorite scent today"
+                              carouselImages={[
+                                "https://i.ibb.co/pv023Dx/6f6d91ceb23f9b46a3183c2ca2e9ff9f.jpg",
+                                "https://i.ibb.co/yhQsgDF/6c353a303a9ab73f1cdd010b0555a59e.jpg",
+                                "https://i.ibb.co/fCTDdWd/f428a8f8fcda2f0f5247f43acf1dea16.jpg",
+                                "https://i.ibb.co/FmbwFqS/da838ba7dac254f4d8581b4b43eea99f.jpg",
+                              ]}
+                          />
+
+                            <ProductGrid category="For woman"/>
                           </>
                         }
                     />
                     <Route
-                        path="/shoes"
+                        path="/forhim"
                         element={
                           <>
                             <CategoryDescription
-                                title="Shoes"
-                                desc="Using mostly recycled fibers, we create sustainable shoes that combine comfort with timeless style. Step into our shoes and experience the difference of artisanal craftsmanship and eco-conscious design."
+                              title="Discover our exquisite perfume collection"
+                              desc="Explore our unique, refined perfume collection, perfect for every style and personality. Find your favorite scent today"
+                              carouselImages={[
+                                "https://i.ibb.co/pv023Dx/6f6d91ceb23f9b46a3183c2ca2e9ff9f.jpg",
+                                "https://i.ibb.co/yhQsgDF/6c353a303a9ab73f1cdd010b0555a59e.jpg",
+                                "https://i.ibb.co/fCTDdWd/f428a8f8fcda2f0f5247f43acf1dea16.jpg",
+                                "https://i.ibb.co/FmbwFqS/da838ba7dac254f4d8581b4b43eea99f.jpg",
+                              ]}
                             />
-                            <ProductGrid category="shoes" />
+                            <ProductGrid category="For Him"/>
                           </>
                         }
                     />
                     <Route
-                        path="/bags"
+                        path="/unisex"
                         element={
                           <>
                             <CategoryDescription
-                                title="Bags"
-                                desc="Discover artisanal excellence in every bag. Our skilled artisans pour heart and soul into crafting each piece from concept to stitch, using eco-conscious materials for elegance with a greener conscience"
+                              title="Discover our exquisite perfume collection"
+                              desc="Explore our unique, refined perfume collection, perfect for every style and personality. Find your favorite scent today"
+                              carouselImages={[
+                                "https://i.ibb.co/pv023Dx/6f6d91ceb23f9b46a3183c2ca2e9ff9f.jpg",
+                                "https://i.ibb.co/yhQsgDF/6c353a303a9ab73f1cdd010b0555a59e.jpg",
+                                "https://i.ibb.co/fCTDdWd/f428a8f8fcda2f0f5247f43acf1dea16.jpg",
+                                "https://i.ibb.co/FmbwFqS/da838ba7dac254f4d8581b4b43eea99f.jpg",
+                              ]}
                             />
-                            <ProductGrid category="bags" />
+                            <ProductGrid category="Unisex"/>
                           </>
                         }
                     />
                     <Route
-                        path="/hats"
+                        path="/bodymist"
                         element={
                           <>
                             <CategoryDescription
-                                title="Hats"
-                                desc="Our remarkable assortment of hats, where artistry meets functionality. Handpicked materials are thoughtfully sourced, and each hat is crafted to bring you a stunning and versatile accessory. Designed to elevate your style and offer comfort."
+                              title="Discover our exquisite perfume collection"
+                              desc="Explore our unique, refined perfume collection, perfect for every style and personality. Find your favorite scent today"
+                              carouselImages={[
+                                "https://i.ibb.co/pv023Dx/6f6d91ceb23f9b46a3183c2ca2e9ff9f.jpg",
+                                "https://i.ibb.co/yhQsgDF/6c353a303a9ab73f1cdd010b0555a59e.jpg",
+                                "https://i.ibb.co/fCTDdWd/f428a8f8fcda2f0f5247f43acf1dea16.jpg",
+                                "https://i.ibb.co/FmbwFqS/da838ba7dac254f4d8581b4b43eea99f.jpg",
+                              ]}
                             />
-                            <ProductGrid category="hats" />
+                            <ProductGrid category="Body Mist"/>
                           </>
                         }
                     />
