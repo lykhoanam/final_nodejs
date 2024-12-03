@@ -17,6 +17,7 @@ function Register() {
 
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false); // Loading state
+  const [suggestions, setSuggestions] = useState([]); // State to hold address suggestions
 
   // Function to validate each field
   const validate = () => {
@@ -61,7 +62,7 @@ function Register() {
         setEmail(value);
         break;
       case "address":
-        setAddress(value);
+        handleAddressChange(e);
         break;
       case "province":
         setProvince(value);
@@ -84,6 +85,77 @@ function Register() {
       default:
         break;
     }
+  };
+
+  const handleAddressChange = (e) => {
+    const value = e.target.value;
+    setAddress(value);
+
+    if (value) {
+        fetchAddressDetails(value.toLowerCase()); // Normalize input to lowercase for consistency
+    } else {
+        setSuggestions([]); // Clear suggestions if address is empty
+    }
+};
+
+let debounceTimer;
+
+const fetchAddressDetails = async (address) => {
+  clearTimeout(debounceTimer); // Clear the previous timer if a new address is typed
+
+  debounceTimer = setTimeout(async () => {
+      try {
+          const encodedAddress = encodeURIComponent(address);
+          const response = await fetch(`https://rsapi.goong.io/Geocode?api_key=85ULWPd6cLGhmsrM661hLSaG53zd1zfxdfp8Xiu3&address=${encodedAddress}`);
+
+          if (!response.ok) {
+              throw new Error(`API Error: ${response.statusText}`);
+          }
+
+          const data = await response.json();
+          console.log("API Response:", data);
+
+          if (data && data.results && Array.isArray(data.results) && data.results.length > 0) {
+              const location = data.results[0].address_components;
+              console.log("Address Components:", location);
+              
+              // Adjust the indices based on your data structure
+              const ward = location[1];   // "Phú Mỹ"
+              const district = location[2];  // "Phú Tân"
+              const province = location[3];  // "An Giang"
+              
+              setProvince(province ? province.long_name : "Unknown Province");
+              setDistrict(district ? district.long_name : "Unknown District");
+              setWard(ward ? ward.long_name : "Unknown Ward");
+
+              setSuggestions(data.results);
+          } else {
+              setSuggestions([]);
+          }
+      } catch (error) {
+          setSuggestions([]);
+          toast.error(`Không thể lấy thông tin địa chỉ: ${error.message}`, {
+              position: "top-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+          });
+      }
+  }, 500); // Delay of 500ms before sending request
+};
+
+
+
+
+
+
+  const handleSelectSuggestion = (suggestion) => {
+    setAddress(suggestion.formatted_address); // Use formatted address for the field
+    setSuggestions([]); // Clear suggestions after selection
+    // Optionally, set province, district, ward based on the selected suggestion
   };
 
   const handleSubmit = async (e) => {
@@ -240,6 +312,20 @@ function Register() {
               onChange={(e) => handleInputChange(e, "address")}
             />
             {errors.address && <p className="text-red-600 text-sm">{errors.address}</p>}
+
+            {suggestions.length > 0 && (
+              <ul className="bg-white border border-gray-300 mt-2 max-h-48 overflow-y-auto rounded-md shadow-md">
+                {suggestions.map((suggestion, index) => (
+                  <li
+                    key={index}
+                    className="p-2 cursor-pointer hover:bg-gray-100"
+                    onClick={() => handleSelectSuggestion(suggestion)}
+                  >
+                    {suggestion.formatted_address}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-4">
