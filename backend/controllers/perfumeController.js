@@ -64,7 +64,7 @@ const addToCart = async (req, res) => {
             existingItem.quantity += 1;
         } else {
             // If the product doesn't exist, add it to the cart with quantity 1
-            userCart.items.push({ ...perfume, quantity: 1 });
+            userCart.items.push({ ...perfume, quantity: 1 ,selectedSize: "50ml"});
         }
 
         await cartModel.updateCart(userId, userCart);
@@ -96,36 +96,41 @@ const getCart = (req, res) => {
 
 
 const updateCart = (req, res) => {
-    const { userId, id, quantity } = req.body; 
-  
+    const { userId, id, quantity, selectedSize } = req.body; 
+
     fs.readFile(cartFilePath, 'utf8', (err, data) => {
-      if (err) {
-        return res.status(500).send('Error reading cart file');
-      }
-      
-      let cart = JSON.parse(data); 
-      
-      let userCart = cart.find(cart => cart.userId === userId);
-      
-      if (!userCart) {
-        return res.status(404).send('User cart not found');
-      }
-  
-      let productIndex = userCart.items.findIndex(item => item.id === id);
-      
-      if (productIndex !== -1) {
-        userCart.items[productIndex].quantity = quantity; // Update the quantity
-        fs.writeFile(cartFilePath, JSON.stringify(cart, null, 2), 'utf8', (err) => {
-          if (err) {
-            return res.status(500).send('Error writing to cart file');
-          }
-          res.status(200).send('Cart updated successfully');
-        });
-      } else {
-        res.status(404).send('Product not found in user cart');
-      }
+        if (err) {
+            return res.status(500).send('Error reading cart file');
+        }
+
+        let cart = JSON.parse(data); 
+
+        let userCart = cart.find(cart => cart.userId === userId);
+
+        if (!userCart) {
+            return res.status(404).send('User cart not found');
+        }
+
+        let productIndex = userCart.items.findIndex(item => item.id === id);
+
+        if (productIndex !== -1) {
+            // Update both quantity and selectedSize
+            userCart.items[productIndex].quantity = quantity;
+            userCart.items[productIndex].selectedSize = selectedSize; // Update selectedSize
+
+            // Save the updated cart back to the file
+            fs.writeFile(cartFilePath, JSON.stringify(cart, null, 2), 'utf8', (err) => {
+                if (err) {
+                    return res.status(500).send('Error writing to cart file');
+                }
+                res.status(200).send('Cart updated successfully');
+            });
+        } else {
+            res.status(404).send('Product not found in user cart');
+        }
     });
 };
+
 
 const removeItemFromCart = (req, res) => {
     const { userId, productId } = req.body;

@@ -6,7 +6,8 @@ function CheckOutButton() {
 
     const handleCheckOut = () => {
         const user = JSON.parse(localStorage.getItem("user"));
-        const cart = JSON.parse(localStorage.getItem("cart"));
+        const cart = JSON.parse(localStorage.getItem("order"));
+        console.log(cart)
         navigate("/checkout", {
             state: {
                 user,

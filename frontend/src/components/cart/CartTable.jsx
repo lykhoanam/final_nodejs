@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Context } from "../../App";
@@ -6,23 +6,180 @@ import { Context } from "../../App";
 function CartTable({ cartItems, setCartItems }) {
     const [cartCounter, setCartCounter] = useContext(Context);
     const user = JSON.parse(localStorage.getItem("user"));
-    const [isLoading, setIsLoading] = useState(false);
-
-    // State for each product's quantity and selected size
-    const [localQuantities, setLocalQuantities] = useState(
-        cartItems.reduce((acc, item) => {
-            acc[item.id] = { quantity: item.quantity, selectedSize: item.selectedSize || '50ml' }; // Default size is 50ml
+ 
+    const [localQuantities, setLocalQuantities] = useState(() => {
+        return cartItems.reduce((acc, item) => {
+            const selectedVariant = item.variants.find(variant => variant.size === item.selectedSize) || item.variants[0];
+            
+            acc[item.id] = {
+                quantity: item.quantity || 1, 
+                selectedSize: item.selectedSize || selectedVariant?.size || '50ml', 
+                price: selectedVariant?.price || item.price, 
+                name: item.name, 
+                image: item.image, 
+            };
             return acc;
-        }, {})
-    );
+        }, {});
+    });
 
-    const handleRemoveFromCart = async (id) => {
-        const userId = user.user.email;
-        const updatedCart = cartItems.filter((item) => item.id !== id);
+    useEffect(() => {
+        if (localQuantities) {
+            localStorage.setItem("order", JSON.stringify(localQuantities));
+        }
+    }, [localQuantities]);
+
+    const setLocalStorage = (updatedCart) => {
+        const formattedCart = updatedCart.map((product) => ({
+            id: product.id,
+            name: product.name,
+            image: product.image,
+            selectedSize: product.selectedSize,
+            price: product.price,
+            quantity: product.quantity,
+        }));
+        localStorage.setItem("cart", JSON.stringify(formattedCart));
+    };
+
+    const handleSizeChange = async (event, id) => {
+        const selectedSize = event.target.value;
+    
+        // Update cartItems and localQuantities
+        const updatedCart = cartItems.map((item) => {
+            if (item.id === id) {
+                const selectedVariant = item.variants.find((variant) => variant.size === selectedSize);
+                return {
+                    ...item,
+                    selectedSize,
+                    price: selectedVariant?.price || item.price, // Update price
+                };
+            }
+            return item;
+        });
+        
         setCartItems(updatedCart);
         setLocalStorage(updatedCart);
-        setCartCounter(updatedCart.length);
+    
+        setLocalQuantities((prev) => {
+            const updatedQuantities = {
+                ...prev,
+                [id]: {
+                    ...prev[id],
+                    selectedSize,
+                    price: updatedCart.find(item => item.id === id)?.price, // Add price
+                    name: updatedCart.find(item => item.id === id)?.name, // Add name
+                    image: updatedCart.find(item => item.id === id)?.image, // Add image
+                },
+            };
+            return updatedQuantities;
+        });
 
+        // Send request to backend to update selectedSize
+        try {
+            const response = await fetch("http://localhost:5000/api/perfumes/update-cart", {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userId: user.user.email,
+                    id,
+                    quantity: localQuantities[id]?.quantity || 1,
+                    selectedSize, // Pass selected size to backend
+                }),
+            });
+
+            if (response.ok) {
+                toast.success('Cart updated successfully!');
+
+                setTimeout(() => {
+                    window.location.reload();  // Reload the page after a delay
+                }, 2000);
+            } else {
+                toast.error('Error updating cart');
+            }
+        } catch (error) {
+            toast.error('Error while updating cart');
+        }
+    };
+
+    const handleQuantityChange = async (event, id) => {
+        const quantity = Math.max(Number(event.target.value), 1);
+       
+        // Update cartItems and localQuantities
+        const updatedCart = cartItems.map((item) => {
+            if (item.id === id) {
+                return {
+                    ...item,
+                    quantity,
+                    price: item.variants.find((variant) => variant.size === item.selectedSize)?.price || item.price, // Update price based on selected size
+                };
+            }
+            return item;
+        });
+    
+        setCartItems(updatedCart);
+        setLocalStorage(updatedCart);
+    
+        setLocalQuantities((prev) => {
+            const updatedQuantities = {
+                ...prev,
+                [id]: {
+                    ...prev[id],
+                    quantity,
+                    price: updatedCart.find(item => item.id === id)?.price, // Add price
+                    name: updatedCart.find(item => item.id === id)?.name, // Add name
+                    image: updatedCart.find(item => item.id === id)?.image, // Add image
+                },
+            };
+            return updatedQuantities;
+        });
+
+        // Send request to backend to update quantity
+        try {
+            const response = await fetch("http://localhost:5000/api/perfumes/update-cart", {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userId: user.user.email,
+                    id,
+                    quantity, // Send updated quantity
+                }),
+            });
+
+            if (response.ok) {
+                toast.success('Cart updated successfully!');
+
+                setTimeout(() => {
+                    window.location.reload();  // Reload the page after a delay
+                }, 1000);
+            } else {
+                toast.error('Error updating cart');
+            }
+        } catch (error) {
+            toast.error('Error while updating cart');
+        }
+    };
+
+    const handleRemoveFromCart = async (id) => {
+        const userId = user.user.email; // Assuming you have access to the user's email for identification
+    
+        const updatedCart = cartItems.filter((item) => item.id !== id);
+        
+        setCartItems(updatedCart); // Update cartItems
+        setLocalQuantities((prev) => {
+            const updatedQuantities = { ...prev };
+            delete updatedQuantities[id]; // Remove product from localQuantities
+            return updatedQuantities;
+        });
+    
+        if (updatedCart.length === 0) {
+            localStorage.setItem("cart", JSON.stringify([])); // Save empty cart
+        } else {
+            setLocalStorage(updatedCart); // Save cart after removal
+        }
+    
         try {
             const response = await fetch("http://localhost:5000/api/perfumes/remove-from-cart", {
                 method: 'DELETE',
@@ -31,134 +188,17 @@ function CartTable({ cartItems, setCartItems }) {
                 },
                 body: JSON.stringify({ userId, productId: id }),
             });
-
+    
             if (response.ok) {
-                console.log('Item removed from cart successfully');
-                toast.success('Xóa sản phẩm thành công!');
+                toast.success('Item removed from cart successfully');
             } else {
-                console.error('Error removing item from cart');
                 toast.error('Error removing item from cart');
             }
         } catch (error) {
-            console.error('Error:', error);
+            toast.error('Error while removing item');
         }
-
-        if (updatedCart.length === 0) {
-            localStorage.setItem("cart", JSON.stringify([]));  // Lưu giỏ hàng rỗng
-        } else {
-            setLocalStorage(updatedCart);
-        }
-    };
-
-    const handleQuantityChange = async (event, id) => {
-        const quantity = event.target.value;
-        const userId = user.user.email;
-
-        if (isNaN(quantity) || quantity < 1) return;
-
-        // Update the local state for the quantity
-        setLocalQuantities((prev) => ({ ...prev, [id]: { ...prev[id], quantity: quantity } }));
-
-        // Update the cart items state
-        const updatedCart = cartItems.map((item) => {
-            if (item.id === id) {
-                const selectedVariant = item.variants.find(variant => variant.size === (localQuantities[item.id]?.selectedSize || '50ml'));
-                const updatedItem = { ...item, quantity: Number(quantity) };
-                updatedItem.total_price = (updatedItem.price * updatedItem.quantity).toFixed(2);
-                console.log('Updated Product:', {
-                    size: updatedItem.selectedSize,
-                    price: updatedItem.price,
-                    quantity: updatedItem.quantity,
-                });
-                return updatedItem;
-            }
-            return item;
-        });
-
-        setCartItems(updatedCart);
-        setLocalStorage(updatedCart);
-
-        try {
-            const response = await fetch("http://localhost:5000/api/perfumes/update-cart", {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId, id, quantity }),
-            });
-
-            if (response.ok) {
-                console.log('Cart updated successfully');
-            } else {
-                console.error('Error updating cart');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
-
-    const handleSizeChange = async (event, id) => {
-        const selectedSize = event.target.value;
-        const userId = user.user.email;
-
-        // Update the local state for the selected size (ensure it's specific to this product)
-        setLocalQuantities((prev) => ({ 
-            ...prev, 
-            [id]: { ...prev[id], selectedSize: selectedSize } 
-        }));
-
-        // Update the cart items state
-        const updatedCart = cartItems.map((item) => {
-            if (item.id === id) {
-                const updatedItem = { ...item, selectedSize: selectedSize };
-                const selectedVariant = item.variants.find(variant => variant.size === selectedSize);
-                updatedItem.total_price = (selectedVariant.price * updatedItem.quantity).toFixed(2);
-                return updatedItem;
-            }
-            return item;
-        });
-
-        setCartItems(updatedCart);
-        setLocalStorage(updatedCart);
-
-        try {
-            const response = await fetch("http://localhost:5000/api/perfumes/update-cart", {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId, id, selectedSize }),
-            });
-
-            if (response.ok) {
-                console.log('Cart size updated successfully');
-            } else {
-                console.error('Error updating cart size');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
-
-    const setLocalStorage = (updatedCart) => {
-        let newItems = [];
-        if (updatedCart.length !== 0) {
-            newItems = updatedCart.map((product) => ({
-                id: product.id,
-                imageUrl: product.imageUrl,
-                name: product.name,
-                quantity: product.quantity,
-                price: product.variants.price,
-                selectedSize: product.selectedSize,
-            }));
-            console.log(newItems)
-            localStorage.setItem("cart", JSON.stringify(newItems));
-        } else {
-            localStorage.removeItem("cart");
-        }
-        calculateCartQuantity();
-    };
-
-    const calculateCartQuantity = () => {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let counter = 0;
-        cart.forEach((item) => (counter += item.quantity));
+    
+        setCartCounter(updatedCart.length);
     };
 
     const formatPrice = (price) => {
@@ -180,64 +220,63 @@ function CartTable({ cartItems, setCartItems }) {
             </thead>
 
             <tbody className="border-b">
-            {cartItems.map((product) => {
-                const selectedVariant = product.variants.find(variant => variant.size === (localQuantities[product.id]?.selectedSize || '50ml'));
+                {cartItems.map((product) => {
+                    const selectedVariant = product.variants?.find(
+                        (variant) => variant.size === (localQuantities[product.id]?.selectedSize || '50ml')
+                    );
 
-                return (
-                    <tr key={product.id} className="border-b">
-                        <td className="py-10">
-                            <div className="flex items-center">
-                                <a href={`products/${product.id}`}>
+                    return (
+                        <tr key={product.id} className="border-b">
+                            <td className="py-10">
+                                <div className="flex items-center">
                                     <img
                                         src={product.image}
-                                        alt=""
+                                        alt="Product"
                                         width={150}
                                         height={150}
                                         className="mr-8"
                                     />
-                                </a>
-                                <div className="hidden sm:flex flex-col mr-2">
-                                    <a href={`products/${product.id}`}>
-                                        <span className="text-lg font-medium text-gray-900">
-                                            {product.name}
-                                        </span>
-                                    </a>
-                                    <span className="pt-2">{formatPrice(selectedVariant.price)}</span>
+                                    <div className="hidden sm:flex flex-col">
+                                        <span className="text-lg font-medium text-gray-900">{product.name}</span>
+                                        <span className="pt-2">{formatPrice(selectedVariant?.price || product.price)}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
+                            </td>
 
-                        <td className="py-10">
-                            <input
-                                type="number"
-                                min={1}
-                                value={localQuantities[product.id]?.quantity || product.quantity} 
-                                onChange={(e) => handleQuantityChange(e, product.id)} 
-                                className="border border-gray-300 px-4 py-1 rounded text-center w-16"
-                            />
-                        </td>
+                            <td className="py-10">
+                                <input
+                                    type="number"
+                                    min={1}
+                                    value={localQuantities[product.id]?.quantity || 1}
+                                    onChange={(e) => handleQuantityChange(e, product.id)}
+                                    className="border border-gray-300 px-4 py-1 rounded text-center w-16"
+                                />
+                            </td>
 
-                        <td className="py-10">
-                            <select
-                                value={localQuantities[product.id]?.selectedSize || '50ml'}
-                                onChange={(e) => handleSizeChange(e, product.id)}
-                                className="border border-gray-300 px-4 py-1 rounded"
-                            >
-                                {product.variants.map((variant) => (
-                                    <option key={variant.size} value={variant.size}>
-                                        {variant.size}
-                                    </option>
-                                ))}
-                            </select>
-                        </td>
+                            <td className="py-10">
+                                <select
+                                    value={localQuantities[product.id]?.selectedSize || '50ml'}
+                                    onChange={(e) => handleSizeChange(e, product.id)}
+                                    className="border border-gray-300 px-4 py-1 rounded"
+                                >
+                                    {product.variants?.map((variant) => (
+                                        <option key={variant.size} value={variant.size}>
+                                            {variant.size}
+                                        </option>
+                                    ))}
+                                </select>
+                            </td>
 
-                        <td className="py-10 text-right">
-                            <span className="font-medium text-gray-900">
-                                {formatPrice(selectedVariant.price * (localQuantities[product.id]?.quantity || product.quantity))}
-                            </span>
-                        </td>
+                            <td className="py-10 text-right">
+                                <span className="font-medium text-gray-900">
+                                    {formatPrice(
+                                        (selectedVariant?.price || product.price) *
+                                        (localQuantities[product.id]?.quantity || 1)
+                                    )}
+                                </span>
+                            </td>
 
-                        <td className="py-10 text-right">
+                            <td className="py-10 text-right">
                             <button
                                 onClick={() => handleRemoveFromCart(product.id)}
                                 className="text-red-600 ml-4"
@@ -245,9 +284,9 @@ function CartTable({ cartItems, setCartItems }) {
                                 Xóa
                             </button>
                         </td>
-                    </tr>
-                );
-            })}
+                        </tr>
+                    );
+                })}
             </tbody>
         </table>
     );

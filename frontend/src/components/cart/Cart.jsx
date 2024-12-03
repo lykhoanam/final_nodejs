@@ -31,8 +31,10 @@ function Cart() {
                 }
     
                 const data = await response.json();
+                
                 if (Array.isArray(data)) {
                     setCartItems(data); 
+
                 } else {
                     throw new Error("Invalid data format"); 
                 }

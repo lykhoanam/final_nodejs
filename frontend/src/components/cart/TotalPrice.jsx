@@ -5,18 +5,16 @@ function TotalPrice() {
 
     useEffect(() => {
         // Retrieve the cart items from localStorage
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        console.log(cart)
-        calculateTotalPrice(cart);
-    }, []);
+        const order = JSON.parse(localStorage.getItem("order")) || {};
+        console.log(order);
 
-    // Calculate total price of items in the cart
-    const calculateTotalPrice = (cart) => {
-        const total = cart.reduce((total, item) => {
+        // Calculate total price based on the order
+        const total = Object.values(order).reduce((total, item) => {
             return total + (parseFloat(item.price) * parseFloat(item.quantity));
         }, 0);
-        setTotalPrice(total.toFixed(0)); // Set the total price state with 2 decimal places
-    };
+        
+        setTotalPrice(total.toFixed(0)); // Set the calculated total price
+    }, []); // Empty dependency array means this effect runs once when the component mounts
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('vi-VN', {
@@ -32,7 +30,7 @@ function TotalPrice() {
                 <span className="text-xl font-bold text-gray-900">{formatPrice(totalPrice)}</span>
             </div>
             <p className="mt-2 text-sm text-gray-500">
-                dsdsdsdsd
+                {/* Additional text or description can go here */}
             </p>
         </div>
     );

@@ -62,7 +62,7 @@ function App() {
                               ]}
                           />
 
-                            <ProductGrid category="For woman"/>
+                            <ProductGrid category="For Her"/>
                           </>
                         }
                     />

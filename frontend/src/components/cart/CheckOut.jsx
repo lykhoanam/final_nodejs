@@ -29,11 +29,12 @@ function CheckOut() {
                 email: userData.user.email || "",
                 paymentMethod: "COD", // default payment method
             });
-        } 
+        }
 
         if (cartData) {
-            console.log(cartData)
-            setCartItems(cartData);
+            // Convert cartData object to an array for proper rendering
+            const cartArray = Object.values(cartData);
+            setCartItems(cartArray);
         }
     }, [userData, cartData]);
 
@@ -57,9 +58,33 @@ function CheckOut() {
 
     const handleSubmitOrder = (e) => {
         e.preventDefault();
+    
+        // Log the user's details, payment method, shipping method, and product information
+        console.log("Thông tin người dùng:");
+        console.log("Họ tên:", formData.fullName);
+        console.log("Email:", formData.email);
+        console.log("Số điện thoại:", formData.phone);
+        console.log("Địa chỉ:", formData.address);
+        
+        console.log("Phương thức thanh toán:", formData.paymentMethod);
+        console.log("Phương thức vận chuyển:", shippingMethod);
+        console.log("Phí vận chuyển:", formatPrice(shippingCost));
+        
+        console.log("Thông tin sản phẩm:");
+        cartItems.forEach(item => {
+            console.log("Tên sản phẩm:", item.name);
+            console.log("Số lượng:", item.quantity);
+            console.log("Size:", item.selectedSize); // Log the size
+            console.log("Giá:", formatPrice(item.price * item.quantity));
+        });
+    
+        console.log("Tổng cộng:", formatPrice(calculateTotal()));
+        
         alert("Đơn hàng đã được xác nhận!");
-        // Handle order logic here (e.g., send data to server)
+        // Handle order logic here (e.g., send data to the server)
     };
+    
+    
 
     const goToNextStep = () => {
         setCurrentStep((prevStep) => prevStep + 1);
@@ -67,7 +92,7 @@ function CheckOut() {
 
     const goToPreviousStep = () => {
         setCurrentStep((prevStep) => prevStep - 1);
-    };  
+    };
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('vi-VN', {
@@ -212,15 +237,23 @@ function CheckOut() {
                     {currentStep === 3 && (
                         <div>
                             <h3 className="text-xl font-semibold mb-4">Xác nhận đơn hàng</h3>
-                            {/* Display all data from steps 1 and 2 */}
-                            <div className="mb-6">
-                                <h4 className="text-lg font-medium">Thông tin khách hàng:</h4>
-                                <p><strong>Họ tên:</strong> {formData.fullName}</p>
-                                <p><strong>Email:</strong> {formData.email}</p>
-                                <p><strong>Số điện thoại:</strong> {formData.phone}</p>
-                                <p><strong>Địa chỉ:</strong> {formData.address}</p>
-                                <p><strong>Phương thức thanh toán:</strong> {formData.paymentMethod}</p>
-                                <p><strong>Phương thức vận chuyển:</strong> {shippingMethod}</p>
+
+                            <div className="mb-4">
+                                <h4 className="font-semibold">Thông tin khách hàng</h4>
+                                <p>Họ tên: {formData.fullName}</p>
+                                <p>Email: {formData.email}</p>
+                                <p>Số điện thoại: {formData.phone}</p>
+                                <p>Địa chỉ: {formData.address}</p>
+                            </div>
+
+                            <div className="mb-4">
+                                <h4 className="font-semibold">Phương thức thanh toán</h4>
+                                <p>{formData.paymentMethod}</p>
+                            </div>
+
+                            <div className="mb-4">
+                                <h4 className="font-semibold">Phương thức vận chuyển</h4>
+                                <p>{shippingMethod} - {formatPrice(shippingCost)}</p>
                             </div>
 
                             <div className="text-center mt-8">
@@ -228,34 +261,38 @@ function CheckOut() {
                                     type="submit"
                                     className="bg-green-500 text-white py-3 px-6 rounded-md shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
                                 >
-                                    Xác nhận thanh toán
+                                    Xác nhận đơn hàng
                                 </button>
                             </div>
                         </div>
                     )}
                 </div>
 
-                {/* Right Column: Cart Info */}
-                <div className="cart-info col-span-1 bg-gray-50 p-6 rounded-lg shadow-md">
-                    <h3 className="text-xl font-semibold mb-4">Giỏ hàng</h3>
-                    <ul className="list-none p-0 mb-4">
-                        {cartItems.map((item) => (
-                            <li key={item.id} className="mb-2 flex items-center justify-between">
-                                <img
-                                    src={item.image}
-                                    alt={item.name}
-                                    width={80}
-                                    height={80}
-                                    className="mr-8"
-                                />
-                                <span className="font-medium flex flex-col justify-center">{item.name} x {item.quantity}</span>
-                                <span>{formatPrice(item.price * item.quantity)}</span>
-                            </li>
-                        ))}
-                    </ul>
+                {/* Right Column: Order Summary */}
+                <div className="order-summary col-span-1 bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 className="text-xl font-semibold mb-4">Thông tin sản phẩm</h3>
+                    {cartItems.map((item, index) => (
+                        <div key={index} className="flex items-center justify-between mb-2">
+                            <img src={item.image} alt={item.name} className="w-16 h-16 object-cover mr-4" />
 
-                    <div className="total mb-4">
-                        <p className="font-semibold text-lg">Tổng thanh toán: {formatPrice(calculateTotal())} </p>
+                            <div className="flex-1">
+                                <span className="font-medium">{item.name} x {item.quantity}</span>
+                                {/* Display selectedSize if it exists */}
+                                {item.selectedSize && <div className="text-sm text-gray-500">Size: {item.selectedSize}</div>}
+                            </div>
+
+                            <span>{formatPrice(item.price * item.quantity)}</span>
+                        </div>
+                    ))}
+
+
+                    <div className="flex justify-between mb-4">
+                        <span>Phí vận chuyển</span>
+                        <span>{formatPrice(shippingCost)}</span>
+                    </div>
+                    <div className="flex justify-between font-semibold">
+                        <span>Tổng cộng</span>
+                        <span>{formatPrice(calculateTotal())}</span>
                     </div>
                 </div>
             </form>

@@ -28,7 +28,7 @@ function App({ navigationItems }) {
             try {
                 // Cố gắng chuyển đổi chuỗi JSON thành object
                 const user = JSON.parse(storedUser);
-                console.log(user)
+                // console.log(user)
                 setUser(user.user); // Set user information in state
             } catch (error) {
                 console.error("Lỗi khi parse dữ liệu từ localStorage:", error);
