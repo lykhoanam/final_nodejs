@@ -1,4 +1,7 @@
-function Footer() {
+function Footer(hidden) {
+    if(hidden) {
+        return null
+    }
     return (
         <footer className="light-gray-bg-custom dark:bg-zinc-800 mt-2.5">
             <div className="mx-auto max-w-screen-2xl p-9 py-6 lg:py-8">

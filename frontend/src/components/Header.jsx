@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from "../components/Loader"; // Import Loader component
 
-function App({ navigationItems }) {
+function Header({ navigationItems, hidden }) {
     // Sets state for mobile hamburger menu
     const [isOpen, setIsOpen] = useState(false);
     // Get cartCounter from useContext
@@ -79,7 +79,9 @@ function App({ navigationItems }) {
         }, 2000); 
     };
     
-
+    if(hidden) {
+        return null
+    }
     return (
         
         <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
@@ -124,7 +126,7 @@ function App({ navigationItems }) {
                 {/* navigation links */}
                 <div className={`w-full lg:flex lg:items-center lg:w-auto mt-4 lg:mt-0 ${isOpen ? "block" : "hidden"}`}>
                     <nav className="text-sm flex flex-col lg:flex-row lg:mt-0 relative top-4 lg:top-1 lg:items-center">
-                        <BrowserRouter>
+                        
                             <NavLink
                                 reloadDocument
                                 to="/"
@@ -194,7 +196,7 @@ function App({ navigationItems }) {
                             >
                                 Cart
                             </NavLink>
-                        </BrowserRouter>
+                     
                     </nav>
                 </div>
 
@@ -310,4 +312,4 @@ function App({ navigationItems }) {
     );
 }
 
-export default App;
+export default Header;

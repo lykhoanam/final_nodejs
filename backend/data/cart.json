@@ -43,5 +43,52 @@
         ]
       }
     ]
+  },
+  {
+    "userId": "nguyenthanhnguyen17102003@gmail.com",
+    "items": [
+      {
+        "id": 11,
+        "name": "Fresh Lilac",
+        "quantity": 2,
+        "star": 4.1,
+        "description": "A delightful lilac fragrance for everyday use.",
+        "discount": 0,
+        "image": "https://i.ibb.co/nQ83YvH/2fb9d281ce89350c87d919d35572d58d.jpg",
+        "category": "For Her",
+        "variants": [
+          {
+            "size": "50ml",
+            "price": 3520000
+          },
+          {
+            "size": "100ml",
+            "price": 7520000
+          }
+        ],
+        "selectedSize": "50ml"
+      },
+      {
+        "id": 3,
+        "name": "Elegant Whisper",
+        "quantity": 1,
+        "star": 4.8,
+        "description": "Sophisticated and subtle, perfect for evening wear.",
+        "discount": 0,
+        "image": "https://i.ibb.co/vwB2rgr/713ff5fccfb22ef0eed5afeb65158041.jpg",
+        "category": "For Her",
+        "variants": [
+          {
+            "size": "50ml",
+            "price": 3520000
+          },
+          {
+            "size": "100ml",
+            "price": 7520000
+          }
+        ],
+        "selectedSize": "50ml"
+      }
+    ]
   }
 ]
