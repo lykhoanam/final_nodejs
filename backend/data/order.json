@@ -1,0 +1,58 @@
+[
+  {
+    "user": {
+      "fullName": "Ly Khoa Nam",
+      "email": "lykhoanamvn@gmail.com",
+      "phone": "0816113413",
+      "address": "595 Chu Van An, Phú Mỹ, Phú Tân, An Giang"
+    },
+    "paymentMethod": "COD",
+    "shippingMethod": "Tiết kiệm",
+    "shippingCost": 20000,
+    "cartItems": [
+      {
+        "name": "Perfume Essence No.1",
+        "quantity": 1,
+        "price": 3520000,
+        "selectedSize": "50ml"
+      },
+      {
+        "name": "Mystic Bloom",
+        "quantity": 1,
+        "price": 3520000,
+        "selectedSize": "50ml"
+      }
+    ],
+    "total": 7060000,
+    "status": "pending",
+    "createdAt": "2024-12-03T16:44:24.363Z"
+  },
+  {
+    "user": {
+      "fullName": "Ly Khoa Nam",
+      "email": "lykhoanamvn@gmail.com",
+      "phone": "0816113413",
+      "address": "595 Chu Van An, Phú Mỹ, Phú Tân, An Giang"
+    },
+    "paymentMethod": "COD",
+    "shippingMethod": "Tiết kiệm",
+    "shippingCost": 20000,
+    "cartItems": [
+      {
+        "name": "Elegant Whisper",
+        "quantity": 2,
+        "price": 3520000,
+        "selectedSize": "50ml"
+      },
+      {
+        "name": "Night Mystique",
+        "quantity": 2,
+        "price": 3520000,
+        "selectedSize": "50ml"
+      }
+    ],
+    "total": 14100000,
+    "status": "pending",
+    "createdAt": "2024-12-03T17:37:36.416Z"
+  }
+]

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate  } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function CheckOut() {
+    const navigate = useNavigate(); // Initialize useNavigate hook
+
     const [cartItems, setCartItems] = useState([]);
     const [user, setUser] = useState({});
     const [formData, setFormData] = useState({
@@ -56,33 +60,70 @@ function CheckOut() {
         return itemsTotal + shippingCost;
     };
 
-    const handleSubmitOrder = (e) => {
-        e.preventDefault();
+    const submitOrder = async (orderData) => {
+        try {
+            const response = await fetch('http://localhost:5000/api/perfumes/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData),
+            });
     
-        // Log the user's details, payment method, shipping method, and product information
-        console.log("Thông tin người dùng:");
-        console.log("Họ tên:", formData.fullName);
-        console.log("Email:", formData.email);
-        console.log("Số điện thoại:", formData.phone);
-        console.log("Địa chỉ:", formData.address);
-        
-        console.log("Phương thức thanh toán:", formData.paymentMethod);
-        console.log("Phương thức vận chuyển:", shippingMethod);
-        console.log("Phí vận chuyển:", formatPrice(shippingCost));
-        
-        console.log("Thông tin sản phẩm:");
-        cartItems.forEach(item => {
-            console.log("Tên sản phẩm:", item.name);
-            console.log("Số lượng:", item.quantity);
-            console.log("Size:", item.selectedSize); // Log the size
-            console.log("Giá:", formatPrice(item.price * item.quantity));
-        });
+            if (!response.ok) {
+                throw new Error('Failed to submit order');
+            }
     
-        console.log("Tổng cộng:", formatPrice(calculateTotal()));
-        
-        alert("Đơn hàng đã được xác nhận!");
-        // Handle order logic here (e.g., send data to the server)
+            const result = await response.json();
+            return result;
+        } catch (error) {
+            console.error('Error submitting order:', error);
+            throw error; // Re-throw the error if needed
+        }
     };
+    
+
+    const handleSubmitOrder = async (e) => {
+        e.preventDefault();
+        
+        // Prepare the order data
+        const orderData = {
+            user: {
+                fullName: formData.fullName,
+                email: formData.email,
+                phone: formData.phone,
+                address: formData.address,
+            },
+            paymentMethod: formData.paymentMethod,
+            shippingMethod,
+            shippingCost,
+            cartItems: cartItems.map(item => ({
+                name: item.name,
+                quantity: item.quantity,
+                price: item.price,
+                selectedSize: item.selectedSize,
+            })),
+            total: calculateTotal(),
+        };
+    
+        try {
+            // Call the API to submit the order
+            const result = await submitOrder(orderData);
+            console.log('Order submitted successfully:', result);
+            
+            toast.success("Đặt hàng thành công!")
+
+            localStorage.removeItem('cart');  // This will remove the cart data from localStorage
+            localStorage.removeItem('order');
+            setTimeout(() => {
+                navigate("/");
+                window.location.reload();
+            }, 2000);
+        } catch (error) {
+            toast.error('Có lỗi xảy ra khi xác nhận đơn hàng');
+        }
+    };
+    
     
     
 

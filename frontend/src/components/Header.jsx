@@ -23,7 +23,7 @@ function App({ navigationItems }) {
     useEffect(() => {
         // Lấy thông tin user từ localStorage
         const storedUser = localStorage.getItem("user");
-    
+        
         if (storedUser) {
             try {
                 // Cố gắng chuyển đổi chuỗi JSON thành object
@@ -200,29 +200,7 @@ function App({ navigationItems }) {
 
                 {/* Right side cart, profile and search icons */}
                 <div id="header-icons" className="hidden lg:flex items-center">
-                    {/* Search Icon
-                    <div className="relative flex items-center">
-                        {isSearchOpen && (
-                            <input
-                                ref={searchInputRef}
-                                type="text"
-                                placeholder="Search..."
-                                className="border border-gray-300 rounded-lg px-4 py-2 w-64 mr-2 transition-all duration-300"
-                            />
-                        )}
-                        <button
-                            onClick={toggleSearch}
-                            className="px-4 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-300"
-                        >
-                            <svg width="24" height="24" viewBox="0 0 24 24">
-                                <path
-                                    fillRule="evenodd"
-                                    clipRule="evenodd"
-                                    d="M18 9.5a7 7 0 1 1-14 0 7 7 0 0 1 14 0Zm-1.736 6.024a8 8 0 1 1 .71-.704l4.62 4.62a.5.5 0 1 1-.707.706l-4.623-4.622Z"
-                                ></path>
-                            </svg>
-                        </button>
-                    </div> */}
+                
 
                     {/* Cart Icon */}
                     <a

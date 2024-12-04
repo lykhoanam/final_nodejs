@@ -1,50 +1,5 @@
 [
   {
-    "userId": "lykhoanamvn@gmail.com",
-    "items": [
-      {
-        "id": 2,
-        "name": "Mystic Bloom",
-        "quantity": 1,
-        "star": 4.2,
-        "description": "A refreshing scent inspired by blooming gardens.",
-        "discount": 0,
-        "image": "https://i.ibb.co/Ntn63s6/0c438b169aac2ca69cbe5df6f69261a2.jpg",
-        "category": "For Her",
-        "variants": [
-          {
-            "size": "50ml",
-            "price": 3520000
-          },
-          {
-            "size": "100ml",
-            "price": 7520000
-          }
-        ]
-      },
-      {
-        "id": 1,
-        "name": "Perfume Essence No.1",
-        "quantity": 2,
-        "star": 4.5,
-        "description": "A luxurious fragrance with a blend of floral and woody notes.",
-        "discount": 0,
-        "image": "https://i.ibb.co/126PHYL/0369446fe4f54cebd4bbb403a111ce9b.jpg",
-        "category": "For Her",
-        "variants": [
-          {
-            "size": "50ml",
-            "price": 3520000
-          },
-          {
-            "size": "100ml",
-            "price": 7520000
-          }
-        ]
-      }
-    ]
-  },
-  {
     "userId": "nguyenthanhnguyen17102003@gmail.com",
     "items": [
       {

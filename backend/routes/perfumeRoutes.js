@@ -15,4 +15,8 @@ router.put("/update-cart",perfumeController.updateCart);
 
 router.delete("/remove-from-cart",perfumeController.removeItemFromCart)
 
+router.post("/orders",perfumeController.order)
+
+router.post("/getOrders",perfumeController.getOrder)
+
 module.exports = router;

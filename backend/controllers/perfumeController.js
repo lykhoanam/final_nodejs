@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const cartFilePath = path.join(__dirname, '../data/cart.json');
+const orderFilePath = path.join(__dirname, '../data/order.json');
 
 // Controller to fetch all perfumes
 const getPerfumes = async (req, res) => {
@@ -170,6 +171,88 @@ const removeItemFromCart = (req, res) => {
     });
 };
 
+const order = async (req, res) => {
+    try {
+        const { user, paymentMethod, shippingMethod, shippingCost, cartItems, total } = req.body;
+
+        const newOrder = {
+            user,
+            paymentMethod,
+            shippingMethod,
+            shippingCost,
+            cartItems,
+            total,
+            status: 'pending', 
+            createdAt: new Date(),
+        };
+
+        // Read existing orders
+        let orders = [];
+        try {
+            const data = fs.readFileSync(orderFilePath, 'utf-8');
+            orders = JSON.parse(data);
+        } catch (err) {
+            if (err.code !== 'ENOENT') {
+                console.error('Error reading order file:', err);
+            }
+        }
+
+        // Add the new order to the orders array
+        orders.push(newOrder);
+
+        // Write orders back to the file
+        fs.writeFileSync(orderFilePath, JSON.stringify(orders, null, 2));
+
+        // Read the current cart data
+        let cartData = [];
+        try {
+            const cartContent = fs.readFileSync(cartFilePath, 'utf-8');
+            cartData = JSON.parse(cartContent);
+        } catch (err) {
+            if (err.code !== 'ENOENT') {
+                console.error('Error reading cart file:', err);
+            }
+        }
+
+        // Remove the cart for the user who placed the order
+        cartData = cartData.filter(cart => cart.userId !== user.email);
+
+        // Write the updated cart data back to the file
+        fs.writeFileSync(cartFilePath, JSON.stringify(cartData, null, 2));
+
+        res.status(201).json({ message: 'Order submitted successfully', order: newOrder });
+    } catch (error) {
+        console.error('Error creating order:', error);
+        res.status(500).json({ message: 'Failed to submit order' });
+    }
+};
+
+const getOrder = (req, res) => {
+    const { email } = req.body; // Lấy email từ body request
+  
+    if (!email) {
+      return res.status(400).json({ message: "Email is required" });
+    }
+  
+    fs.readFile(orderFilePath, 'utf8', (err, data) => {
+      if (err) {
+        console.error("Không thể đọc file:", err);
+        return res.status(500).json({ message: 'Lỗi server khi đọc file' });
+      }
+  
+      try {
+        const orders = JSON.parse(data);
+  
+        // Lọc đơn hàng theo email
+        const filteredOrders = orders.filter(order => order.user.email === email);
+        console.log(filteredOrders)
+        res.json(filteredOrders);
+      } catch (parseError) {
+        console.error("Lỗi khi parse JSON:", parseError);
+        res.status(500).json({ message: 'Lỗi server khi parse dữ liệu' });
+      }
+    });
+  };
 
 module.exports = {
     getPerfumes,
@@ -177,5 +260,7 @@ module.exports = {
     addToCart,
     getCart,
     updateCart,
-    removeItemFromCart
+    removeItemFromCart,
+    order,
+    getOrder
 };

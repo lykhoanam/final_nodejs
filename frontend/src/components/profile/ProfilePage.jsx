@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Loader from "../../components/Loader"; 
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import OrderManagement from "./OrderManagement"; 
 
 const ProfilePage = () => {
     const storedUser = localStorage.getItem('user');
@@ -218,29 +219,24 @@ const ProfilePage = () => {
                             >
                                 Thông tin người dùng
                             </li>
+                
                             <li
-                                className={`text-lg mb-4 cursor-pointer ${activeMenu === 'favorites' ? 'text-orange-500 font-semibold border-r-4 border-orange-500' : 'text-gray-600'}`}
-                                onClick={() => handleMenuClick('favorites')}
-                            >
-                                Sản phẩm yêu thích
-                            </li>
-                            <li
-                                className={`text-lg mb-4 cursor-pointer ${activeMenu === 'watchlist' ? 'text-orange-500 font-semibold border-r-4 border-orange-500' : 'text-gray-600'}`}
-                                onClick={() => handleMenuClick('watchlist')}
+                                className={`text-lg mb-4 cursor-pointer ${activeMenu === 'order' ? 'text-orange-500 font-semibold border-r-4 border-orange-500' : 'text-gray-600'}`}
+                                onClick={() => handleMenuClick('order')}
                             >
                                 Quản lý đơn hàng
                             </li>
                             <li
-                                className={`text-lg mb-4 cursor-pointer ${activeMenu === 'settings' ? 'text-orange-500 font-semibold border-r-4 border-orange-500' : 'text-gray-600'}`}
-                                onClick={() => handleMenuClick('settings')}
+                                className={`text-lg mb-4 cursor-pointer ${activeMenu === 'history' ? 'text-orange-500 font-semibold border-r-4 border-orange-500' : 'text-gray-600'}`}
+                                onClick={() => handleMenuClick('history')}
                             >
-                                Thông báo
+                                Lịch sử đặt hàng
                             </li>
                             <li
                                 className={`text-lg mb-4 cursor-pointer ${activeMenu === 'notifications' ? 'text-orange-500 font-semibold border-r-4 border-orange-500' : 'text-gray-600'}`}
                                 onClick={() => handleMenuClick('notifications')}
                             >
-                                Cài đặt
+                                Thông báo
                             </li>
                         </ul>
                     </div>
@@ -254,10 +250,9 @@ const ProfilePage = () => {
                             onChange={(e) => handleMenuClick(e.target.value)}
                         >
                             <option value="userInfo">Thông tin người dùng</option>
-                            <option value="favorites">Sản phẩm yêu thích</option>
-                            <option value="watchlist">Quản lý đơn hàng</option>
-                            <option value="settings">Thông báo</option>
-                            <option value="notifications">Cài đặt</option>
+                            <option value="order">Quản lý đơn hàng</option>
+                            <option value="history">Lịch sử đặt hàng</option>
+                            <option value="notifications">Thông báo</option>
                         </select>
                     </div>
                 )}
@@ -458,6 +453,10 @@ const ProfilePage = () => {
                         </div>
                     </div>
                 )}
+
+                {activeMenu === 'order' && <OrderManagement />}
+
+
             </div>
             <ToastContainer />
 
