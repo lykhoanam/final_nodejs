@@ -43,30 +43,5 @@
         ]
       }
     ]
-  },
-  {
-    "userId": "nguyenthanhnguyen17102003@gmail.com",
-    "items": [
-      {
-        "id": 7,
-        "name": "Velvet Rose",
-        "quantity": 1,
-        "star": 4.7,
-        "description": "A rich and velvety rose scent with a modern twist.",
-        "discount": 18,
-        "image": "https://i.ibb.co/Pg3nqCx/6d072b4824ea618ccd5c24f58f5d741d.jpg",
-        "price": 110
-      },
-      {
-        "id": 8,
-        "name": "Night Mystique",
-        "quantity": 1,
-        "star": 4.4,
-        "description": "A mysterious fragrance with deep, musky tones.",
-        "discount": 15,
-        "image": "https://i.ibb.co/Jmrm7q8/c0a32d749fbf6d78632ac6be35987b9d.jpg",
-        "price": 90
-      }
-    ]
   }
 ]
