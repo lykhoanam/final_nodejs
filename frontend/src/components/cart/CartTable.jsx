@@ -9,8 +9,9 @@ function CartTable({ cartItems, setCartItems }) {
  
     const [localQuantities, setLocalQuantities] = useState(() => {
         return cartItems.reduce((acc, item) => {
-            const selectedVariant = item.variants.find(variant => variant.size === item.selectedSize) || item.variants[0];
-            
+            const selectedVariant = Array.isArray(item.variants)
+            ? item.variants.find(variant => variant.size === item.selectedSize) || item.variants[0]
+            : null;            
             acc[item.id] = {
                 quantity: item.quantity || 1, 
                 selectedSize: item.selectedSize || selectedVariant?.size || '50ml', 

@@ -1,6 +1,6 @@
 import React, { useState, createContext, useEffect} from "react";
 import {gapi} from 'gapi-script';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 
 import AnnouncementBar from "./components/AnnouncementBar";
 import Header from "./components/Header";
@@ -14,6 +14,10 @@ import ProductPage from "./components/product-page/ProductPage";
 import Profile from "./components/profile/ProfilePage.jsx"
 import Recovery from "./components/login/VerifyOTP.jsx"
 import CheckOut from "./components/cart/CheckOut.jsx"
+import Admin from "./components/admin/Admin.jsx";
+
+import TableUsers from "./components/admin/Table/TableUsers.jsx";
+import ProductTable from "./components/admin/Table/TableProducts.jsx";
 
 export const Context = createContext();
 
@@ -22,7 +26,10 @@ const clientId = "1074315812564-92s9klc0eos45ujtefj613bkualvulq0.apps.googleuser
 function App() {
     const [cartCounter, setCartCounter] = useState(0);
     const navigationItems = ["For Him", "Unisex", "Body Mist"];
+    const location = useLocation();
 
+    const adminRoute = "/admin"
+    const shouldHideHeaderFooter = adminRoute.includes(location.pathname);
     useEffect(() => {
       function start(){
         gapi.client.init({
@@ -33,13 +40,80 @@ function App() {
 
       gapi.load('client:auth2', start)
     });
+    const tableData = [
+      { fullName: "John Doe", phone: "123-456-7890", email: "john@example.com", address: "123 Main St" },
+      { fullName: "Jane Smith", phone: "987-654-3210", email: "jane@example.com", address: "456 Oak Ave" },
+      { fullName: "Sam Johnson", phone: "555-555-5555", email: "sam@example.com", address: "789 Pine Rd" },
+      { fullName: "John Doe", phone: "123-456-7890", email: "john@example.com", address: "123 Main St" },
+      { fullName: "Jane Smith", phone: "987-654-3210", email: "jane@example.com", address: "456 Oak Ave" },
+      { fullName: "Sam Johnson", phone: "555-555-5555", email: "sam@example.com", address: "789 Pine Rd" },
+  ];
+  
+    const productData = [
+      {
+        id: 1,
+        name: "Perfume Essence No.1",
+        quantity: 50,
+        star: 4.5,
+        description: "A luxurious fragrance with a blend of floral and woody notes.",
+        discount: 0,
+        image: "https://i.ibb.co/126PHYL/0369446fe4f54cebd4bbb403a111ce9b.jpg",
+        category: "For Her",
+        variants: [
+          { size: "50ml", price: 3520000 },
+          { size: "100ml", price: 7520000 },
+        ],
+      },
+      {
+        id: 2,
+        name: "Mystic Bloom",
+        quantity: 30,
+        star: 4.2,
+        description: "A refreshing scent inspired by blooming gardens.",
+        discount: 0,
+        image: "https://i.ibb.co/Ntn63s6/0c438b169aac2ca69cbe5df6f69261a2.jpg",
+        category: "For Her",
+        variants: [
+          { size: "50ml", price: 3520000 },
+          { size: "100ml", price: 7520000 },
+        ],
+      },
+      {
+        id: 3,
+        name: "Elegant Whisper",
+        quantity: 40,
+        star: 4.8,
+        description: "Sophisticated and subtle, perfect for evening wear.",
+        discount: 0,
+        image: "https://i.ibb.co/vwB2rgr/713ff5fccfb22ef0eed5afeb65158041.jpg",
+        category: "For Her",
+        variants: [
+          { size: "50ml", price: 3520000 },
+          { size: "100ml", price: 7520000 },
+        ],
+      },
+      {
+        id: 4,
+        name: "Ocean Breeze",
+        quantity: 25,
+        star: 4.0,
+        description: "A light and breezy fragrance reminiscent of the sea.",
+        discount: 0,
+        image: "https://i.ibb.co/VH99QKG/e679333e48b1444a87d7fd7c165c0139.jpg",
+        category: "For Her",
+        variants: [
+          { size: "50ml", price: 3520000 },
+          { size: "100ml", price: 7520000 },
+        ],
+      },
+    ]
 
     return (
         <Context.Provider value={[cartCounter, setCartCounter]}>
             {/* <AnnouncementBar title="Free Shipping in Europe" /> */}
-            <Header navigationItems={navigationItems} />
-
-            <Router>
+            {!shouldHideHeaderFooter && <Header navigationItems={navigationItems} />}
+            
+              
                 <Routes>
                     <Route path="/recovery" element={<Recovery/>}></Route>
                     <Route path="/profile" element={<Profile />}></Route>
@@ -121,11 +195,18 @@ function App() {
                         }
                     />
                     <Route path="/products/:id" element={<ProductPage />} />
-                </Routes>
-            </Router>
+                 
+                    {/* Định tuyến tới trang admin */}
+                    <Route path="/admin" element={<Admin/>}/>
+                      
+          
 
-            <Footer />
+   
+                </Routes>
+            {!shouldHideHeaderFooter && <Footer />}
         </Context.Provider>
+
+        
     );
 }
 
