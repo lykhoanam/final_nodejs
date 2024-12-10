@@ -52,7 +52,7 @@ function Login() {
     setIsLoading(true); // Start loading
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -62,7 +62,7 @@ function Login() {
 
       const data = await response.json();
 
-      const cartResponse = await fetch("http://localhost:5000/api/perfumes/cart", {
+      const cartResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes/cart`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: data.user.email }),

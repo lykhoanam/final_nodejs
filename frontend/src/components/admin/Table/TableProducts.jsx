@@ -135,7 +135,7 @@ function TableProducts(props) {
     e.preventDefault(); 
   
     try {
-      const response = await fetch('http://localhost:5000/api/perfumes/update-product', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes/update-product`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -175,7 +175,7 @@ function TableProducts(props) {
 
   const confirmDelete = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/perfumes/delete-product', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes/delete-product`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -261,7 +261,7 @@ function TableProducts(props) {
   
     try {
       // Gửi yêu cầu POST đến backend để thêm sản phẩm
-      const response = await fetch('http://localhost:5000/api/perfumes/add-product', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes/add-product`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

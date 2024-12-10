@@ -182,7 +182,7 @@ function CartTable({ cartItems, setCartItems }) {
         }
     
         try {
-            const response = await fetch("http://localhost:5000/api/perfumes/remove-from-cart", {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes/remove-from-cart`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

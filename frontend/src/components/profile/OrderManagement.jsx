@@ -11,7 +11,7 @@ const OrderManagement = () => {
 
   useEffect(() => {
     if (user.user.email) {
-      fetch('http://localhost:5000/api/perfumes/getOrders', {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes/getOrders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

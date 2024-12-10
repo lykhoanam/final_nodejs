@@ -132,7 +132,7 @@ const ProfilePage = () => {
             };
     
             const saveUserDataResponse = await fetch(
-                "http://localhost:5000/api/auth/upload-image",
+                `${import.meta.env.VITE_BACKEND_URL}/api/auth/upload-image`,
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },

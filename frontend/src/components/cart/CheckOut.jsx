@@ -62,7 +62,7 @@ function CheckOut() {
 
     const submitOrder = async (orderData) => {
         try {
-            const response = await fetch('http://localhost:5000/api/perfumes/orders', {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes/orders`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

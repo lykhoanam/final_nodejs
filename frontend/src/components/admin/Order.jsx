@@ -10,7 +10,7 @@ export default function Order() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/admin/get-all-orders");
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/admin/get-all-orders`);
         if (!response.ok) {
           throw new Error("Failed to fetch products");
         }

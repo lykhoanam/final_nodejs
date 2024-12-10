@@ -100,7 +100,7 @@ function TableUsers(props) {
       console.log('Saving user data:', currentUser); // Log the data
   
       try {
-        const response = await fetch(`http://localhost:5000/api/auth/update-user`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/update-user`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ function TableUsers(props) {
   const confirmDelete = async () => {
     if (userToDelete) {
       try {
-        const response = await fetch(`http://localhost:5000/api/auth/delete-user`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/delete-user`, {
           method: 'DELETE', 
           headers: {
             'Content-Type': 'application/json',

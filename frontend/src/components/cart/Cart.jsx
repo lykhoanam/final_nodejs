@@ -15,7 +15,7 @@ function Cart() {
             if (!user) return; 
     
             try {
-                const response = await fetch("http://localhost:5000/api/perfumes/cart", {
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes/cart`, {
                     method: "POST", 
                     headers: {
                         "Content-Type": "application/json", 

@@ -26,7 +26,7 @@ function ProductGrid({ category }) {
     useEffect(() => {
         const fetchPerfumes = async () => {
             try {
-                const response = await fetch("http://localhost:5000/api/perfumes");
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes`);
                 const data = await response.json();
                 setProductData({ products: data, isDataLoaded: true });
                 setProducts(data);

@@ -17,7 +17,7 @@ function ProductPage() {
     useEffect(() => {
         const fetchProductData = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/perfumes/${id}`);
+                const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes/${id}`);
                 const data = await response.json();
                 setProduct(data);
                 setSelectedVariant(data.variants[0]);
@@ -59,7 +59,7 @@ function ProductPage() {
                 comments: [...(product.comments || []), newComment],
             };
 
-            const response = await fetch(`http://localhost:5000/api/perfumes/${id}`, {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(updatedProduct),

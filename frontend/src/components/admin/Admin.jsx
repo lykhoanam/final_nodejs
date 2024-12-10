@@ -18,7 +18,7 @@ export default function Admin() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/perfumes");
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes`);
         if (!response.ok) {
           throw new Error("Failed to fetch products");
         }
@@ -36,7 +36,7 @@ export default function Admin() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/get-all-users");
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/get-all-users`);
         if (!response.ok) {
           throw new Error("Failed to fetch users");
         }
@@ -54,7 +54,7 @@ export default function Admin() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/admin/get-all-orders");
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/admin/get-all-orders`);
         if (!response.ok) {
           throw new Error("Failed to fetch orders");
         }

@@ -40,7 +40,7 @@ function VerifyOTP() {
 
     try {
       // API call to send OTP (adjust to use email instead of phone)
-      const response = await fetch("http://localhost:5000/api/auth/send-otp", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/send-otp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -72,7 +72,7 @@ function VerifyOTP() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/verify-otp", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/verify-otp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp }),
@@ -108,7 +108,7 @@ function VerifyOTP() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/reset-password", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/reset-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, newPassword }),

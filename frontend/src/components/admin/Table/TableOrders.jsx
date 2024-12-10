@@ -22,7 +22,7 @@ function TableOrders({ orderData }) {
 
   const handleConfirmOrder = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/update-status`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/admin/update-status`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
