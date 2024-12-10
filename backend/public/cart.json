@@ -1,0 +1,215 @@
+[
+  {
+    "userId": "nguyenthanhnguyen17102003@gmail.com",
+    "items": [
+      {
+        "id": 7,
+        "name": "Velvet Rose",
+        "quantity": 1,
+        "star": 4.7,
+        "description": "A rich and velvety rose scent with a modern twist.",
+        "discount": 18,
+        "image": "https://i.ibb.co/Pg3nqCx/6d072b4824ea618ccd5c24f58f5d741d.jpg",
+        "price": 110
+      },
+      {
+        "id": 8,
+        "name": "Night Mystique",
+        "quantity": 1,
+        "star": 4.4,
+        "description": "A mysterious fragrance with deep, musky tones.",
+        "discount": 15,
+        "image": "https://i.ibb.co/Jmrm7q8/c0a32d749fbf6d78632ac6be35987b9d.jpg",
+        "price": 90
+      }
+    ]
+  },
+  {
+    "userId": "nguyenthanhnguyen17102003@gmail.com",
+    "items": [
+      {
+        "id": 11,
+        "name": "Fresh Lilac",
+        "quantity": 2,
+        "star": 4.1,
+        "description": "A delightful lilac fragrance for everyday use.",
+        "discount": 0,
+        "image": "https://i.ibb.co/nQ83YvH/2fb9d281ce89350c87d919d35572d58d.jpg",
+        "category": "For Her",
+        "variants": [
+          {
+            "size": "50ml",
+            "price": 3520000
+          },
+          {
+            "size": "100ml",
+            "price": 7520000
+          }
+        ],
+        "selectedSize": "50ml"
+      },
+      {
+        "id": 3,
+        "name": "Elegant Whisper",
+        "quantity": 1,
+        "star": 4.8,
+        "description": "Sophisticated and subtle, perfect for evening wear.",
+        "discount": 0,
+        "image": "https://i.ibb.co/vwB2rgr/713ff5fccfb22ef0eed5afeb65158041.jpg",
+        "category": "For Her",
+        "variants": [
+          {
+            "size": "50ml",
+            "price": 3520000
+          },
+          {
+            "size": "100ml",
+            "price": 7520000
+          }
+        ],
+        "selectedSize": "50ml"
+      }
+    ]
+  },
+  {
+    "userId": "lyducminh12@gmail.com",
+    "items": [
+      {
+        "id": 2,
+        "name": "Mystic Bloom",
+        "quantity": 1,
+        "star": 4.2,
+        "description": "A refreshing scent inspired by blooming gardens.",
+        "discount": 0,
+        "image": "https://i.ibb.co/Ntn63s6/0c438b169aac2ca69cbe5df6f69261a2.jpg",
+        "category": "For Her",
+        "variants": [
+          {
+            "size": "50ml",
+            "price": 3520000
+          },
+          {
+            "size": "100ml",
+            "price": 7520000
+          }
+        ],
+        "selectedSize": "50ml"
+      },
+      {
+        "id": 3,
+        "name": "Elegant Whisper",
+        "quantity": 1,
+        "star": 4.8,
+        "description": "Sophisticated and subtle, perfect for evening wear.",
+        "discount": 0,
+        "image": "https://i.ibb.co/vwB2rgr/713ff5fccfb22ef0eed5afeb65158041.jpg",
+        "category": "For Her",
+        "variants": [
+          {
+            "size": "50ml",
+            "price": 3520000
+          },
+          {
+            "size": "100ml",
+            "price": 7520000
+          }
+        ],
+        "selectedSize": "50ml"
+      },
+      {
+        "id": 4,
+        "name": "Ocean Breeze",
+        "quantity": 1,
+        "star": 4,
+        "description": "A light and breezy fragrance reminiscent of the sea.",
+        "discount": 0,
+        "image": "https://i.ibb.co/VH99QKG/e679333e48b1444a87d7fd7c165c0139.jpg",
+        "category": "For Her",
+        "variants": [
+          {
+            "size": "50ml",
+            "price": 3520000
+          },
+          {
+            "size": "100ml",
+            "price": 7520000
+          }
+        ],
+        "selectedSize": "50ml"
+      }
+    ]
+  },
+  {
+    "userId": "521h0466@student.tdtu.edu.vn",
+    "items": [
+      {
+        "id": 2,
+        "name": "Mystic Bloom",
+        "quantity": 1,
+        "star": 4.2,
+        "description": "A refreshing scent inspired by blooming gardens.",
+        "discount": 0,
+        "image": "https://i.ibb.co/Ntn63s6/0c438b169aac2ca69cbe5df6f69261a2.jpg",
+        "category": "For Her",
+        "variants": [
+          {
+            "size": "50ml",
+            "price": 3520000
+          },
+          {
+            "size": "100ml",
+            "price": 7520000
+          }
+        ],
+        "selectedSize": "50ml"
+      },
+      {
+        "id": 3,
+        "name": "Elegant Whisper",
+        "quantity": 1,
+        "star": 4.8,
+        "description": "Sophisticated and subtle, perfect for evening wear.",
+        "discount": 0,
+        "image": "https://i.ibb.co/vwB2rgr/713ff5fccfb22ef0eed5afeb65158041.jpg",
+        "category": "For Her",
+        "variants": [
+          {
+            "size": "50ml",
+            "price": 3520000
+          },
+          {
+            "size": "100ml",
+            "price": 7520000
+          }
+        ],
+        "selectedSize": "50ml"
+      }
+    ]
+  },
+  {
+    "userId": null,
+    "items": [
+      {
+        "id": 2,
+        "name": "Mystic Bloom",
+        "quantity": 1,
+        "star": 4.2,
+        "description": "A refreshing scent inspired by blooming gardens.",
+        "discount": 0,
+        "image": "https://i.ibb.co/Ntn63s6/0c438b169aac2ca69cbe5df6f69261a2.jpg",
+        "category": "For Her",
+        "variants": [
+          {
+            "size": "50ml",
+            "price": 3520000
+          },
+          {
+            "size": "100ml",
+            "price": 7520000
+          }
+        ],
+        "selectedSize": "50ml"
+      }
+    ]
+  }
+]
