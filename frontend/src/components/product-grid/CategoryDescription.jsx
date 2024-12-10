@@ -76,12 +76,12 @@ const CategoryDescription = ({ title, desc, carouselImages }) => {
 
             {/* Custom Navigation Buttons */}
             <div className="absolute top-1/2 left-4 z-20 transform -translate-y-1/2">
-                <button className="swiper-button-prev text-white p-2 rounded-full">
+                <button className="swiper-button-prev text-black p-2 rounded-full">
                     Prev
                 </button>
             </div>
             <div className="absolute top-1/2 right-4 z-20 transform -translate-y-1/2">
-                <button className="swiper-button-next text-white p-2 rounded-full">
+                <button className="swiper-button-next text-black p-2 rounded-full">
                     Next
                 </button>
             </div>

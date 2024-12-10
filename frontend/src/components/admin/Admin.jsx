@@ -1,93 +1,134 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import SideBar from "./SideBar/SideBar";
 import HeaderAdmin from "./HeaderAdmin/HeaderAdmin";
 import AnalyticsSession from "./Analytics/AnalyticsSession";
-import TableUsers from "./Table/TableUsers";
-import TableProducts from "./Table/TableProducts"
-export default function Admin() {
-  const tableData = [
-    { fullName: "John Doe", phone: "123-456-7890", email: "john@example.com", address: "123 Main St" },
-    { fullName: "Jane Smith", phone: "987-654-3210", email: "jane@example.com", address: "456 Oak Ave" },
-    { fullName: "Sam Johnson", phone: "555-555-5555", email: "sam@example.com", address: "789 Pine Rd" },
-    { fullName: "John Doe", phone: "123-456-7890", email: "john@example.com", address: "123 Main St" },
-    { fullName: "Jane Smith", phone: "987-654-3210", email: "jane@example.com", address: "456 Oak Ave" },
-    { fullName: "Sam Johnson", phone: "555-555-5555", email: "sam@example.com", address: "789 Pine Rd" },
-];
+import AdvancedDashboard from "./Analytics/AdvancedDashboard"; // Import AdvancedDashboard
+import { parseISO, startOfMonth, endOfMonth, format } from 'date-fns'; // Import date-fns functions for date manipulation
 
-  const productData = [
-    {
-      id: 1,
-      name: "Perfume Essence No.1",
-      quantity: 50,
-      star: 4.5,
-      description: "A luxurious fragrance with a blend of floral and woody notes.",
-      discount: 0,
-      image: "https://i.ibb.co/126PHYL/0369446fe4f54cebd4bbb403a111ce9b.jpg",
-      category: "For Her",
-      variants: [
-        { size: "50ml", price: 3520000 },
-        { size: "100ml", price: 7520000 },
-      ],
-    },
-    {
-      id: 2,
-      name: "Mystic Bloom",
-      quantity: 30,
-      star: 4.2,
-      description: "A refreshing scent inspired by blooming gardens.",
-      discount: 0,
-      image: "https://i.ibb.co/Ntn63s6/0c438b169aac2ca69cbe5df6f69261a2.jpg",
-      category: "For Her",
-      variants: [
-        { size: "50ml", price: 3520000 },
-        { size: "100ml", price: 7520000 },
-      ],
-    },
-    {
-      id: 3,
-      name: "Elegant Whisper",
-      quantity: 40,
-      star: 4.8,
-      description: "Sophisticated and subtle, perfect for evening wear.",
-      discount: 0,
-      image: "https://i.ibb.co/vwB2rgr/713ff5fccfb22ef0eed5afeb65158041.jpg",
-      category: "For Her",
-      variants: [
-        { size: "50ml", price: 3520000 },
-        { size: "100ml", price: 7520000 },
-      ],
-    },
-    {
-      id: 4,
-      name: "Ocean Breeze",
-      quantity: 25,
-      star: 4.0,
-      description: "A light and breezy fragrance reminiscent of the sea.",
-      discount: 0,
-      image: "https://i.ibb.co/VH99QKG/e679333e48b1444a87d7fd7c165c0139.jpg",
-      category: "For Her",
-      variants: [
-        { size: "50ml", price: 3520000 },
-        { size: "100ml", price: 7520000 },
-      ],
-    },
-  ]
+export default function Admin() {
+  const [totalUsers, setTotalUsers] = useState();
+  const [totalOrders, setTotalOrders] = useState();
+  const [totalPerfumes, setTotalPerfumes] = useState();
+  const [revenue, setRevenue] = useState(0);
+  const [pendingOrders, setPendingOrders] = useState();
+  const [finishedOrders, setFinishedOrders] = useState();
+  const [monthlyRevenueData, setMonthlyRevenueData] = useState([]); // State to store monthly revenue data
+
+  //product
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/perfumes");
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+        const data = await response.json();
+        setTotalPerfumes(data.length); // Update the state with fetched data
+      } catch (error) {
+        
+      } 
+    };
+
+    fetchProducts();
+  }, []);
+
+  //user
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/auth/get-all-users");
+        if (!response.ok) {
+          throw new Error("Failed to fetch users");
+        }
+        const data = await response.json();
+        setTotalUsers(data.users.length); // Đặt dữ liệu người dùng vào state
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+  // Fetch order data and calculate monthly revenue
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/admin/get-all-orders");
+        if (!response.ok) {
+          throw new Error("Failed to fetch orders");
+        }
+        const data = await response.json();
+
+        const pendingCount = data.filter(order => order.status === "pending").length;
+        const finishedCount = data.filter(order => order.status === "finish").length;
+
+        const totalRevenue = data
+          .filter(order => order.status === "finish")
+          .reduce((acc, order) => acc + order.total, 0);
+
+        // Calculate monthly revenue
+        const revenueByMonth = data
+          .filter(order => order.status === "finish")
+          .reduce((acc, order) => {
+            const month = startOfMonth(parseISO(order.createdAt)); // Get the start of the month
+            const monthKey = format(month, 'MMM yyyy'); // Format the month key (e.g. "Jan 2024")
+            if (!acc[monthKey]) {
+              acc[monthKey] = 0;
+            }
+            acc[monthKey] += order.total; // Add the order total to the correct month
+            return acc;
+          }, {});
+
+        // Convert the revenueByMonth object to an array of months and revenue
+        const formattedMonthlyRevenue = Object.keys(revenueByMonth).map((month) => ({
+          month,
+          revenue: revenueByMonth[month],
+        }));
+
+        // Sort the data by month (optional)
+        formattedMonthlyRevenue.sort((a, b) => new Date(a.month) - new Date(b.month));
+
+        // Keep only the last 12 months
+        const last12Months = formattedMonthlyRevenue.slice(-12);
+
+        setMonthlyRevenueData(last12Months); // Set monthly revenue data
+
+        setPendingOrders(pendingCount);
+        setFinishedOrders(finishedCount);
+        setRevenue(totalRevenue);
+        setTotalOrders(data.length);
+      } catch (error) {
+        console.error("Error fetching orders:", error);
+      }
+    };
+
+    fetchOrders();
+  }, []);
+
   return (
     <div className="bg-[#f5f8fe]">
-      <div className="h-full w-full ">
-        <SideBar></SideBar>
-        <main className="mx-[12px] h-full flex-none transition-all md:pr-2 xl:ml-[313px] ">
-          <div className="h-full ">
-            <HeaderAdmin></HeaderAdmin>
-            <div className="pt-5s mx-auto mb-auto h-full min-h-[84vh] ml-10  md:pr-2">
-              <AnalyticsSession></AnalyticsSession>
-              <TableUsers tableData={tableData} />
-              <TableProducts productData={productData} />
-              
+      <div className="h-full w-full flex">
+        <div className="min-w-[10px]">
+          <SideBar />
+        </div>
+
+        <main className="flex-1 w-[80%] h-full transition-all ml-[16%]">
+          <div className="h-full">
+            <HeaderAdmin title="Main Dashboard" />
+            <div className="pt-5 mx-auto mb-auto h-full min-h-[84vh] md:pr-2">
+              <AnalyticsSession
+                totalUsers={totalUsers}
+                totalPerfumes={totalPerfumes}
+                totalOrders={totalOrders}
+                revenue={revenue}
+                pending={pendingOrders}
+                finished={finishedOrders}
+              />
+
+              {/* Pass the monthly revenue data to AdvancedDashboard */}
+              <AdvancedDashboard monthlyRevenueData={monthlyRevenueData} />
             </div>
-            
-            
           </div>
         </main>
       </div>

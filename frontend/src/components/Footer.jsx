@@ -1,10 +1,13 @@
-function Footer() {
+function Footer(hidden) {
+    if(hidden) {
+        return null
+    }
     return (
         <footer className="light-gray-bg-custom dark:bg-zinc-800 mt-2.5">
             <div className="mx-auto max-w-screen-2xl p-9 py-6 lg:py-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 text-center sm:text-left md:mb-12">
                     <div className="mt-16 sm:mt-8">
-                        <h2 className="mb-6 text-sm font-semibold text-gray-700 uppercase dark:text-white">
+                        <h2 className="mb-6 text-sm font-semibold text-gray-700 uppercase dark:text-black">
                             Quick Links
                         </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
@@ -26,7 +29,7 @@ function Footer() {
                         </ul>
                     </div>
                     <div className="mt-16 sm:mt-8">
-                        <h2 className="mb-6 text-sm font-semibold text-gray-700 uppercase dark:text-white">
+                        <h2 className="mb-6 text-sm font-semibold text-gray-700 uppercase dark:text-black">
                             Categories
                         </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
@@ -48,7 +51,7 @@ function Footer() {
                         </ul>
                     </div>
                     <div className="mt-16 sm:mt-8">
-                        <h2 className="mb-6 text-sm font-semibold text-gray-700 uppercase dark:text-white">
+                        <h2 className="mb-6 text-sm font-semibold text-gray-700 uppercase dark:text-black">
                             Follow us
                         </h2>
                         <ul className="text-gray-500 dark:text-gray-400">
@@ -70,7 +73,7 @@ function Footer() {
                         </ul>
                     </div>
                     <div className="mt-16 sm:mt-8">
-                        <h2 className="mb-6 text-sm font-semibold text-gray-700 uppercase dark:text-white">
+                        <h2 className="mb-6 text-sm font-semibold text-gray-700 uppercase dark:text-black">
                             Legal
                         </h2>
                         <ul className="text-gray-500 dark:text-gray-400">

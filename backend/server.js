@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const perfumeRoutes = require("./routes/perfumeRoutes");
 const authRoutes = require("./routes/authRoutes");  // Import authRoutes
+const adminRoutes = require("./routes/adminRoutes");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
@@ -16,7 +17,7 @@ app.use(express.json());
 // Routes
 app.use("/api/perfumes", perfumeRoutes);
 app.use("/api/auth", authRoutes);  
-
+app.use("/api/admin",adminRoutes)
 // MongoDB connection
 mongoose
   .connect("mongodb+srv://lykhoanamvn:KhoaNamlLy@cluster0.dj2dcmd.mongodb.net/?", {})

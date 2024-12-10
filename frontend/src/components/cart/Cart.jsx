@@ -9,7 +9,6 @@ function Cart() {
 
     // Get user data from localStorage
     const user = JSON.parse(localStorage.getItem("user"));
-
     // Fetch the cart data for the user
     useEffect(() => {
         const fetchCartData = async () => {
@@ -34,7 +33,7 @@ function Cart() {
                 
                 if (Array.isArray(data)) {
                     setCartItems(data); 
-
+                    localStorage.setItem("cart", JSON.stringify(data));
                 } else {
                     throw new Error("Invalid data format"); 
                 }

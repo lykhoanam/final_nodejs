@@ -165,7 +165,7 @@ function VerifyOTP() {
             />
             <button
               onClick={handleSendOTP}
-              className="mt-4 w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2"
+              className="mt-4 w-full p-3 bg-blue-600 text-black rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2"
             >
               Gửi mã OTP
             </button>
@@ -185,7 +185,7 @@ function VerifyOTP() {
             />
             <button
               onClick={handleVerifyOTP}
-              className="mt-4 w-full p-3 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2"
+              className="mt-4 w-full p-3 bg-green-600 text-black rounded-md hover:bg-green-700 focus:outline-none focus:ring-2"
             >
               Xác minh
             </button>
@@ -225,7 +225,7 @@ function VerifyOTP() {
 
             <button
               onClick={handleResetPassword}
-              className="mt-6 w-full p-3 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2"
+              className="mt-6 w-full p-3 bg-green-600 text-black rounded-md hover:bg-green-700 focus:outline-none focus:ring-2"
             >
               Đặt lại mật khẩu
             </button>

@@ -19,7 +19,7 @@ function CheckOutButton() {
     return (
         <button
             type="button"
-            className="washed-gray-bg hover:bg-gray-700 text-white font-bold py-2 px-4 mb-8 w-48 mt-8"
+            className="washed-gray-bg hover:bg-gray-700 text-black font-bold py-2 px-4 mb-8 w-48 mt-8"
             onClick={handleCheckOut}  
         >
             Thanh toán

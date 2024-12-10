@@ -1,7 +1,7 @@
 function AnnouncementBar({ title }) {
     return (
         <div className="h-12 flex items-center text-center washed-gray-bg">
-            <span className="grow text-white text-sm font-light tracking-wide">
+            <span className="grow text-black text-sm font-light tracking-wide">
                 {title}
             </span>
         </div>

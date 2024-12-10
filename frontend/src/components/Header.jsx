@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from "../components/Loader"; // Import Loader component
 
-function App({ navigationItems }) {
+function Header({ navigationItems, hidden }) {
     // Sets state for mobile hamburger menu
     const [isOpen, setIsOpen] = useState(false);
     // Get cartCounter from useContext
@@ -60,6 +60,7 @@ function App({ navigationItems }) {
 
     useEffect(() => {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        console.log(cart)
         const counter = cart.length; 
         setCartCounter(counter);
     }, []);
@@ -69,6 +70,8 @@ function App({ navigationItems }) {
         setIsLoading(true);
     
         localStorage.removeItem("user");
+        localStorage.removeItem("cart")
+        setCartCounter(0);
         setUser(null);  
         setProfileMenuOpen(false);  
         
@@ -79,7 +82,9 @@ function App({ navigationItems }) {
         }, 2000); 
     };
     
-
+    if(hidden) {
+        return null
+    }
     return (
         
         <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
@@ -124,7 +129,7 @@ function App({ navigationItems }) {
                 {/* navigation links */}
                 <div className={`w-full lg:flex lg:items-center lg:w-auto mt-4 lg:mt-0 ${isOpen ? "block" : "hidden"}`}>
                     <nav className="text-sm flex flex-col lg:flex-row lg:mt-0 relative top-4 lg:top-1 lg:items-center">
-                        <BrowserRouter>
+                        
                             <NavLink
                                 reloadDocument
                                 to="/"
@@ -194,7 +199,7 @@ function App({ navigationItems }) {
                             >
                                 Cart
                             </NavLink>
-                        </BrowserRouter>
+                     
                     </nav>
                 </div>
 
@@ -204,7 +209,7 @@ function App({ navigationItems }) {
 
                     {/* Cart Icon */}
                     <a
-                        href="/cart"
+                        href={user ? "/cart" : "/login"} 
                         className="px-4 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 duration-300"
                     >
                         <svg width="24" height="24" viewBox="0 0 24 24">
@@ -288,4 +293,4 @@ function App({ navigationItems }) {
     );
 }
 
-export default App;
+export default Header;

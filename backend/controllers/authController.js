@@ -307,7 +307,82 @@ const uploadImage = async (req, res) => {
 };
 
 
+// admin
 
+const fetchAllUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+
+    res.status(200).json({ success: true, users });
+  } catch (error) {
+    console.error('Error fetching all users:', error);
+    res.status(500).json({ message: 'Có lỗi xảy ra khi lấy danh sách người dùng.', error: error.message });
+  }
+};
+
+const fetchUserById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const user = await User.findById(id);
+
+    if (!user) {
+      return res.status(404).json({ message: 'Người dùng không tồn tại.' });
+    }
+
+    res.status(200).json({ success: true, user });
+  } catch (error) {
+    console.error('Error fetching user by ID:', error);
+    res.status(500).json({ message: 'Có lỗi xảy ra khi tìm kiếm người dùng.', error: error.message });
+  }
+};
+
+const deleteUser = async (req, res) => {
+  try {
+    const {_id} = req.body; 
+
+    if (!_id) {
+      return res.status(400).json({ message: 'User ID is required' });
+    }
+
+    const deletedUser = await User.findByIdAndDelete(_id);
+
+    if (!deletedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Respond with a success message
+    res.status(200).json({ message: 'User deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting user:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+const updateUser = async (req, res) => {
+  try {
+    const { _id, fullName, phone, email, address } = req.body;
+
+    if (!_id) {
+      return res.status(400).json({ message: 'User ID is required' });
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(
+      _id,
+      { fullName, phone, email, address },
+      { new: true } 
+    );
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json({ message: 'User updated successfully', user: updatedUser });
+  } catch (error) {
+    console.error('Error updating user:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
 
 
 module.exports = {
@@ -317,5 +392,8 @@ module.exports = {
   sendOTP,
   verifyOTP,
   resetPassword,
-  uploadImage
+  uploadImage,
+  fetchAllUsers,
+  deleteUser,
+  updateUser,
 };

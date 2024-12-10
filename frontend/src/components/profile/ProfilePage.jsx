@@ -3,6 +3,7 @@ import Loader from "../../components/Loader";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import OrderManagement from "./OrderManagement"; 
+import History from "./History";
 
 const ProfilePage = () => {
     const storedUser = localStorage.getItem('user');
@@ -444,7 +445,7 @@ const ProfilePage = () => {
                         <div className="flex justify-end">
                             <button
                                 onClick={handleSave}
-                                className={`px-6 py-3 text-white rounded-md shadow-md transition ${opacity === 1 ? 'bg-orange-500 hover:bg-orange-600' : 'bg-gray-400 cursor-not-allowed'}`}
+                                className={`px-6 py-3 text-black rounded-md shadow-md transition ${opacity === 1 ? 'bg-orange-500 hover:bg-orange-600' : 'bg-gray-400 cursor-not-allowed'}`}
                                 style={{ opacity }}
                                 disabled={opacity < 1}
                             >
@@ -455,7 +456,7 @@ const ProfilePage = () => {
                 )}
 
                 {activeMenu === 'order' && <OrderManagement />}
-
+                {activeMenu === 'history' && <History />}   
 
             </div>
             <ToastContainer />

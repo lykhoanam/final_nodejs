@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const OrderManagement = () => {
+const History = () => {
   const storedUser = localStorage.getItem('user');
   const user = JSON.parse(storedUser);
   const [orders, setOrders] = useState([]);
@@ -25,8 +25,8 @@ const OrderManagement = () => {
           return response.json();
         })
         .then(data => {
-          console.log(data)
-          setOrders(data);
+          const finishedOrders = data.filter(order => order.status === 'finish'); // Filter orders with status 'finish'
+          setOrders(finishedOrders);
           setLoading(false);
         })
         .catch(err => {
@@ -85,15 +85,15 @@ const OrderManagement = () => {
           <tbody>
             {cartItems.map((item, index) => (
               <tr key={index}>
-<td className="border border-gray-300 px-4 py-2">
-  <div className="max-w-[150px] max-h-[150px] overflow-hidden">
-    <img 
-      src={item.image} 
-      alt={item.name} 
-      className="w-full h-auto object-cover"
-    />
-  </div>
-</td>
+                <td className="border border-gray-300 px-4 py-2">
+                  <div className="max-w-[150px] max-h-[150px] overflow-hidden">
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                </td>
                 <td className="border border-gray-300 px-4 py-2">{item.name}</td>
                 <td className="border border-gray-300 px-4 py-2">{item.quantity}</td>
                 <td className="border border-gray-300 px-4 py-2">{item.price.toLocaleString()} VND</td>
@@ -106,40 +106,35 @@ const OrderManagement = () => {
     );
   };
 
-  const renderOrderList = () => {
-    const filteredOrders = orders.filter(order => order.status !== "finish");
-  
-    return (
-      <div>
-        <h2 className="text-2xl font-semibold mb-4">Quản lý đơn hàng</h2>
-        {filteredOrders.length > 0 ? (
-          <table className="table-auto w-full border-collapse border border-gray-300">
-            <thead>
-              <tr>
-                <th className="border border-gray-300 px-4 py-2">Ngày tạo</th>
-                <th className="border border-gray-300 px-4 py-2">Phương thức thanh toán</th>
-                <th className="border border-gray-300 px-4 py-2">Tổng tiền</th>
-                <th className="border border-gray-300 px-4 py-2">Trạng thái</th>
+  const renderOrderList = () => (
+    <div>
+      <h2 className="text-2xl font-semibold mb-4">Lịch sử đơn hàng</h2>
+      {orders.length > 0 ? (
+        <table className="table-auto w-full border-collapse border border-gray-300">
+          <thead>
+            <tr>
+              <th className="border border-gray-300 px-4 py-2">Ngày tạo</th>
+              <th className="border border-gray-300 px-4 py-2">Phương thức thanh toán</th>
+              <th className="border border-gray-300 px-4 py-2">Tổng tiền</th>
+              <th className="border border-gray-300 px-4 py-2">Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orders.map((order, index) => (
+              <tr key={index} onClick={() => handleOrderClick(order)} className="cursor-pointer hover:bg-gray-200">
+                <td className="border border-gray-300 px-4 py-2">{new Date(order.createdAt).toLocaleString()}</td>
+                <td className="border border-gray-300 px-4 py-2">{order.paymentMethod}</td>
+                <td className="border border-gray-300 px-4 py-2">{order.total.toLocaleString()} VND</td>
+                <td className="border border-gray-300 px-4 py-2">{order.status}</td>
               </tr>
-            </thead>
-            <tbody>
-              {filteredOrders.map((order, index) => (
-                <tr key={index} onClick={() => handleOrderClick(order)} className="cursor-pointer hover:bg-gray-200">
-                  <td className="border border-gray-300 px-4 py-2">{new Date(order.createdAt).toLocaleString()}</td>
-                  <td className="border border-gray-300 px-4 py-2">{order.paymentMethod}</td>
-                  <td className="border border-gray-300 px-4 py-2">{order.total.toLocaleString()} VND</td>
-                  <td className="border border-gray-300 px-4 py-2">{order.status}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p>Không có đơn hàng nào đang chờ xử lý.</p>  
-        )}
-      </div>
-    );
-  };
-  
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>Không có đơn hàng nào được tìm thấy.</p>
+      )}
+    </div>
+  );
 
   const handleBackToOrders = () => {
     setStep(1); // Switch back to Step 1 when going back
@@ -167,4 +162,4 @@ const OrderManagement = () => {
   );
 };
 
-export default OrderManagement;
+export default History;

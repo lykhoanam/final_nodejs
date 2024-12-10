@@ -98,6 +98,7 @@ function CheckOut() {
             shippingMethod,
             shippingCost,
             cartItems: cartItems.map(item => ({
+                image:item.image,
                 name: item.name,
                 quantity: item.quantity,
                 price: item.price,
@@ -200,7 +201,7 @@ function CheckOut() {
                             <div className="text-center mt-8">
                                 <button
                                     type="button"
-                                    className="bg-blue-500 text-white py-3 px-6 rounded-md shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="bg-blue-500 text-black py-3 px-6 rounded-md shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     onClick={goToNextStep}
                                 >
                                     Tiếp theo
@@ -258,14 +259,14 @@ function CheckOut() {
                             <div className="flex justify-between mt-8">
                                 <button
                                     type="button"
-                                    className="bg-gray-500 text-white py-3 px-6 rounded-md shadow-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                                    className="bg-gray-500 text-black py-3 px-6 rounded-md shadow-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500"
                                     onClick={goToPreviousStep}
                                 >
                                     Quay lại
                                 </button>
                                 <button
                                     type="button"
-                                    className="bg-blue-500 text-white py-3 px-6 rounded-md shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="bg-blue-500 text-black py-3 px-6 rounded-md shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     onClick={goToNextStep}
                                 >
                                     Tiếp theo
@@ -300,7 +301,7 @@ function CheckOut() {
                             <div className="text-center mt-8">
                                 <button
                                     type="submit"
-                                    className="bg-green-500 text-white py-3 px-6 rounded-md shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+                                    className="bg-green-500 text-black py-3 px-6 rounded-md shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
                                 >
                                     Xác nhận đơn hàng
                                 </button>

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { GoogleLogin } from "react-google-login";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import Loader from "../../components/Loader"; // Import Loader component
 
 function Login() {
@@ -12,6 +12,34 @@ function Login() {
   const navigate = useNavigate();
 
   const clientId = "1074315812564-92s9klc0eos45ujtefj613bkualvulq0.apps.googleusercontent.com";
+
+
+
+  useEffect(() => {
+    // Load Google Identity Services API
+    const loadGoogleAPI = () => {
+      const script = document.createElement("script");
+      script.src = "https://accounts.google.com/gsi/client";
+      script.async = true;
+      script.defer = true;
+      script.onload = initializeGoogleLogin;
+      document.body.appendChild(script);
+    };
+
+    const initializeGoogleLogin = () => {
+      window.google.accounts.id.initialize({
+        client_id: clientId,
+        callback: handleGoogleSuccess,
+      });
+
+      window.google.accounts.id.renderButton(
+        document.getElementById("googleSignInButton"),
+        { theme: "outline", size: "large" } // Customize button
+      );
+    };
+
+    loadGoogleAPI();
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -33,6 +61,19 @@ function Login() {
       });
 
       const data = await response.json();
+
+      const cartResponse = await fetch("http://localhost:5000/api/perfumes/cart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: data.user.email }),
+      });
+      
+      if (cartResponse.ok) {
+        const cartData = await cartResponse.json();
+        localStorage.setItem("cart", JSON.stringify(cartData));
+      } else {
+          console.error("Failed to fetch cart data");
+      }
 
       if (response.ok) {
         // Store user info in Local Storage
@@ -80,7 +121,7 @@ function Login() {
       }),
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(async(data) => {
         if (data.success) {
           localStorage.setItem("user", JSON.stringify(data));
           toast.success("Đăng nhập với Google thành công!", {
@@ -88,7 +129,22 @@ function Login() {
             autoClose: 2000,
           });
 
-          console.log(data)
+          try {
+            const cartResponse = await fetch("http://localhost:5000/api/perfumes/cart", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ userId: data.user.email }),
+            });
+  
+            if (cartResponse.ok) {
+              const cartData = await cartResponse.json();
+              localStorage.setItem("cart", JSON.stringify(cartData)); // Save cart to localStorage
+            } else {
+              console.error("Failed to fetch cart data");
+            }
+          } catch (error) {
+            console.error("Error fetching cart:", error);
+          }
           // Navigate to home after success
           setTimeout(() => {
             navigate("/");
@@ -160,7 +216,7 @@ function Login() {
             className={`w-full p-3 rounded-md focus:outline-none focus:ring-2 ${
               isLoading
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700 text-white"
+                : "bg-blue-600 hover:bg-blue-700 text-black"
             }`}
             disabled={isLoading} // Disable button when loading
           >

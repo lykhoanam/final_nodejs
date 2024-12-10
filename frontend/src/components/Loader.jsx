@@ -12,7 +12,7 @@ const Loader = ({ text = "Hệ thống đang xử lý..." }) => { // Default par
           color="#FF8C00"
           ariaLabel="loading-indicator"
         />
-        <p className="mt-4 text-lg font-semibold text-white">{text}</p>
+        <p className="mt-4 text-lg font-semibold text-black">{text}</p>
       </div>
     </div>
   );
