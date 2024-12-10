@@ -76,7 +76,7 @@ function CartTable({ cartItems, setCartItems }) {
 
         // Send request to backend to update selectedSize
         try {
-            const response = await fetch("http://localhost:5000/api/perfumes/update-cart", {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes/update-cart`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ function CartTable({ cartItems, setCartItems }) {
 
         // Send request to backend to update quantity
         try {
-            const response = await fetch("http://localhost:5000/api/perfumes/update-cart", {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes/update-cart`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

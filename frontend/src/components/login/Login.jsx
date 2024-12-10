@@ -110,7 +110,7 @@ function Login() {
     setIsLoading(true); // Start loading for Google login
 
     // Send the tokenId and profileObj to your backend for authentication
-    fetch("http://localhost:5000/api/auth/google-login", {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/google-login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -130,7 +130,7 @@ function Login() {
           });
 
           try {
-            const cartResponse = await fetch("http://localhost:5000/api/perfumes/cart", {
+            const cartResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/perfumes/cart`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ userId: data.user.email }),

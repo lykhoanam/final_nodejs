@@ -5,9 +5,9 @@ const fs = require('fs');
 const path = require('path');
 const nodemailer = require('nodemailer');
 
-const cartFilePath = path.join(__dirname, '../public/cart.json');
-const orderFilePath = path.join(__dirname, '../public/order.json');
-const productFilePath = path.join(__dirname, '../public/perfume.json');
+const cartFilePath = path.join(__dirname, '../data/cart.json');
+const orderFilePath = path.join(__dirname, '../data/order.json');
+const productFilePath = path.join(__dirname, '../data/perfume.json');
 // Controller to fetch all perfumes
 const getPerfumes = async (req, res) => {
     try {
